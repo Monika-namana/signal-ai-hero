@@ -132,7 +132,7 @@ export default function CodeTerminal({ phase: propPhase, setPhase: propSetPhase 
         initial={{ filter: 'brightness(1.8) contrast(1.1)', scale: 0.995 }}
         animate={{ filter: 'brightness(1) contrast(1)', scale: 1 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="p-5 sm:p-6 min-h-[210px] sm:min-h-[230px] bg-slate-950/70 relative overflow-hidden flex flex-col justify-between scanline-glow"
+        className="p-4 sm:p-6 min-h-[215px] sm:min-h-[230px] bg-slate-950/70 relative overflow-hidden flex flex-col justify-between scanline-glow"
       >
         
         {/* Volumetric CRT laser scanner line */}
@@ -153,7 +153,7 @@ export default function CodeTerminal({ phase: propPhase, setPhase: propSetPhase 
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.25 }}
-              className="flex-grow whitespace-pre font-mono"
+              className="flex-grow whitespace-pre font-mono overflow-x-auto w-full pb-2"
             >
               {buggyCode.split('\n').map((line, idx) => renderBuggyLine(line, idx))}
             </motion.div>
@@ -186,7 +186,7 @@ export default function CodeTerminal({ phase: propPhase, setPhase: propSetPhase 
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.25 }}
-              className="flex-grow whitespace-pre font-mono"
+              className="flex-grow whitespace-pre font-mono overflow-x-auto w-full pb-2"
             >
               {optimizedCode.split('\n').map((line, idx) => renderOptimizedLine(line, idx))}
             </motion.div>

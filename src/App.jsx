@@ -285,9 +285,9 @@ export default function App() {
             className="pt-8 border-t border-white/5 w-full"
           >
             <p className="text-[9px] uppercase tracking-[0.2em] text-slate-500 font-mono mb-4 font-semibold">Active Syntactic Core // Logs</p>
-            <div className="grid grid-cols-3 gap-6 select-none">
+            <div className="grid grid-cols-3 gap-3.5 sm:gap-6 select-none">
               <div>
-                <p className="font-display text-[26px] font-bold text-slate-100 tracking-wide">15k+</p>
+                <p className="font-display text-[21px] xs:text-2xl sm:text-[26px] font-bold text-slate-100 tracking-wide">15k+</p>
                 <p className="text-[9px] font-medium text-slate-500 uppercase tracking-[0.14em] font-mono leading-none">Dev Sandboxes</p>
                 
                 {/* Visual Sandbox Equalizer */}
@@ -312,7 +312,7 @@ export default function App() {
               </div>
               
               <div>
-                <p className="font-display text-[26px] font-bold text-emerald-300 tracking-wide drop-shadow-[0_0_10px_rgba(52,211,153,0.12)]">99.8%</p>
+                <p className="font-display text-[21px] xs:text-2xl sm:text-[26px] font-bold text-emerald-300 tracking-wide drop-shadow-[0_0_10px_rgba(52,211,153,0.12)]">99.8%</p>
                 <p className="text-[9px] font-medium text-slate-500 uppercase tracking-[0.14em] font-mono leading-none">AST Accuracy</p>
                 
                 {/* Visual Sparkline Wave */}
@@ -335,14 +335,14 @@ export default function App() {
                         strokeDasharray: '3, 40',
                         animationDuration: '2.4s',
                         filter: 'drop-shadow(0 0 3px rgba(16, 185, 129, 0.6))'
-                      }}
+                       }}
                     />
                   </svg>
                 </div>
               </div>
               
               <div>
-                <p className="font-display text-[26px] font-bold text-cyan-300 tracking-wide drop-shadow-[0_0_10px_rgba(34,211,238,0.12)]">12ms</p>
+                <p className="font-display text-[21px] xs:text-2xl sm:text-[26px] font-bold text-cyan-300 tracking-wide drop-shadow-[0_0_10px_rgba(34,211,238,0.12)]">12ms</p>
                 <p className="text-[9px] font-medium text-slate-500 uppercase tracking-[0.14em] font-mono leading-none">Wasm Latency</p>
                 
                 {/* Fast horizontal latency tracker sparkline */}
@@ -367,7 +367,7 @@ export default function App() {
 
         {/* Right Side: Futuristic visual with strict 3D Perspective viewport */}
         <div 
-          className="lg:col-span-7 flex items-center justify-center relative w-full min-h-[520px] lg:min-h-[620px] select-none"
+          className="lg:col-span-7 flex flex-col lg:flex-row items-center justify-center relative w-full min-h-[480px] sm:min-h-[520px] lg:min-h-[620px] py-8 lg:py-0 select-none"
           style={{
             perspective: '1200px',
             transformStyle: 'preserve-3d'
@@ -382,7 +382,7 @@ export default function App() {
           }`} />
 
           {/* Upgraded Glowing SVG Laser Transmission Channels (Midground plane) */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none z-10 hidden sm:block" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <svg className="absolute inset-0 w-full h-full pointer-events-none z-10 hidden lg:block" viewBox="0 0 100 100" preserveAspectRatio="none">
             <defs>
               <filter id="purpleLaserGlow" x="-30%" y="-30%" width="160%" height="160%">
                 <feGaussianBlur stdDeviation="0.85" result="blur" />
@@ -491,6 +491,18 @@ export default function App() {
             <circle cx="22" cy="80" r="0.55" fill="#FFFFFF" />
           </svg>
 
+          {/* Floating Holographic Orb (Centered & Stacked on mobile, Absolute on desktop) */}
+          <div 
+            className="relative lg:absolute lg:top-[1%] lg:right-[-4%] xl:right-[-8%] mx-auto lg:mx-0 mb-6 lg:mb-0 z-20 scale-90 sm:scale-95 lg:scale-100"
+            style={{
+              transform: `translate3d(${mousePos.x * 10}px, ${mousePos.y * 10}px, 15px)`,
+              transformStyle: 'preserve-3d',
+              transition: 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)'
+            }}
+          >
+            <FloatingOrb />
+          </div>
+
           {/* 3D-Tilt Centerpiece wrapper (Handles stereoscopic Y/X tilts on cursor move) */}
           <motion.div 
             style={{
@@ -498,7 +510,7 @@ export default function App() {
               transformStyle: 'preserve-3d',
             }}
             transition={{ type: "spring", stiffness: 90, damping: 25 }}
-            className="w-full max-w-[530px] px-4 sm:px-0 relative z-10"
+            className="w-full max-w-[530px] px-3.5 sm:px-0 relative z-10"
           >
             <CodeTerminal phase={terminalPhase} setPhase={setTerminalPhase} />
           </motion.div>
@@ -509,7 +521,7 @@ export default function App() {
           
           {/* Background Card D: Wasm compilation stack (autofocus on hover) */}
           <div
-            className="absolute top-[3%] left-[30%] z-5 hidden md:block"
+            className="absolute top-[3%] left-[30%] z-5 hidden lg:block"
             style={{
               transform: `translate3d(${mousePos.x * -18}px, ${mousePos.y * -18}px, -150px) scale(0.95)`,
               transformStyle: 'preserve-3d',
@@ -544,7 +556,7 @@ export default function App() {
 
           {/* Background Card E: Memory cache hitting */}
           <div
-            className="absolute bottom-[3%] right-[32%] z-5 hidden md:block"
+            className="absolute bottom-[3%] right-[32%] z-5 hidden lg:block"
             style={{
               transform: `translate3d(${mousePos.x * -24}px, ${mousePos.y * -24}px, -180px) scale(0.90)`,
               transformStyle: 'preserve-3d',
@@ -609,21 +621,11 @@ export default function App() {
           {/* LEVEL 0: STANDARD MIDGROUND MOUNTED CARDS                     */}
           {/* ------------------------------------------------------------- */}
 
-          {/* Floating Holographic Orb (Responsive offsets) */}
-          <div 
-            className="absolute top-[1%] right-[-8%] sm:right-[0%] z-20"
-            style={{
-              transform: `translate3d(${mousePos.x * 10}px, ${mousePos.y * 10}px, 15px) scale(1.0)`,
-              transformStyle: 'preserve-3d',
-              transition: 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)'
-            }}
-          >
-            <FloatingOrb />
-          </div>
+
 
           {/* Card A: Debug Log Alert (Top-Left, floating independently) */}
           <div
-            className="absolute top-[8%] left-[-4%] md:left-[1%] z-20 hidden xs:block"
+            className="absolute top-[8%] left-[-4%] md:left-[1%] z-20 hidden lg:block"
             style={{
               transform: `translate3d(${mousePos.x * 14}px, ${mousePos.y * 14}px, 30px) scale(1.0)`,
               transformStyle: 'preserve-3d',
@@ -657,7 +659,7 @@ export default function App() {
 
           {/* Card B: Optimization stats (Bottom-Right, independent curves) */}
           <div
-            className="absolute bottom-[2%] right-[-4%] md:right-[4%] z-20 hidden xs:block"
+            className="absolute bottom-[2%] right-[-4%] md:right-[4%] z-20 hidden lg:block"
             style={{
               transform: `translate3d(${mousePos.x * 18}px, ${mousePos.y * 18}px, 45px) scale(1.0)`,
               transformStyle: 'preserve-3d',
@@ -699,7 +701,7 @@ export default function App() {
 
           {/* Card C: Core Uptime Latency (Bottom-Left) */}
           <div
-            className="absolute bottom-[6%] left-[-4%] md:left-[3%] z-20 hidden xs:block"
+            className="absolute bottom-[6%] left-[-4%] md:left-[3%] z-20 hidden lg:block"
             style={{
               transform: `translate3d(${mousePos.x * 12}px, ${mousePos.y * 12}px, 20px) scale(1.0)`,
               transformStyle: 'preserve-3d',
@@ -736,7 +738,7 @@ export default function App() {
 
           {/* Foreground Card F: Extreme left pop element (Highly blurred code tag) */}
           <div
-            className="absolute top-[58%] left-[-16%] md:left-[-6%] z-40 hidden sm:block pointer-events-none select-none"
+            className="absolute top-[58%] left-[-16%] md:left-[-6%] z-40 hidden lg:block pointer-events-none select-none"
             style={{
               transform: `translate3d(${mousePos.x * 45}px, ${mousePos.y * 45}px, 180px) scale(1.15)`,
               transformStyle: 'preserve-3d',
@@ -768,7 +770,7 @@ export default function App() {
 
           {/* Foreground Card G: Extreme right pop element (Highly blurred AST token) */}
           <div
-            className="absolute top-[12%] right-[-14%] md:right-[-4%] z-40 hidden sm:block pointer-events-none select-none"
+            className="absolute top-[12%] right-[-14%] md:right-[-4%] z-40 hidden lg:block pointer-events-none select-none"
             style={{
               transform: `translate3d(${mousePos.x * -50}px, ${mousePos.y * -50}px, 200px) scale(1.2)`,
               transformStyle: 'preserve-3d',
