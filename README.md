@@ -1,56 +1,61 @@
-# Signal AI // Antigravity Core
+# Signal AI // The Cognitive Refactoring & Optimization Engine
 
-An award-worthy, cinematic, and interactive landing page concept representing the next generation of AI-driven developer compilers. This project features a highly polished, stereoscopic 3D hero section designed to showcase complex syntax graphs, active refactoring streams, and AST compilations in real time.
-
----
-
-## 🌌 The Importance of the Hero Section
-
-For sophisticated developer tools, the **Hero Section** is the single most critical asset. Developers are highly discerning and associate a tool's technical capability with the quality of its engineering aesthetics. 
-
-A flat, standard landing page fails to establish trust. By integrating volumetric physics, three-dimensional depth, and reactive compilation telemetry directly into the UI, this hero section provides a **captivating visual hook** that establishes immediate engineering credibility and drives developer adoption.
+**Signal AI** is a next-generation AI coding assistant and static analysis engine that compiles, refactors, and optimizes complex source code in real time. By acting as an automated compiler agent, it parses developer codebases, detects architectural inefficiencies, and generates optimal subtrees—reducing execution latency from seconds to milliseconds.
 
 ---
 
-## ✨ Hero Section Visual Highlights (Built Today)
+## 💡 The Importance of the Application
 
-This hero section is engineered utilizing **Vite, React, Tailwind CSS v4, and Framer Motion** to create a premium, state-of-the-art landing experience:
+Modern software engineering suffers from **cognitive overload** and **performance debt**. As codebases scale, structural bottlenecks—such as quadratic search loops, sub-optimal indexing, and memory allocation leaks—silently compound, causing massive operational latency and bloated infrastructure costs.
 
-1. **🔮 Concentric Holographic AI Orb**: A centerpiece scientific neuro-energy dome featuring three concentric, overlapping HUD tracks rotating at staggered velocities, metric degree rings (`00°`, `90°`, `180°`, `270°`), a sweep-latitude laser scanner, and an inner spinning 3D wireframe octahedron representing compilation runs.
-2. **🕶️ 3D Stereoscopic Parallax**: Elements are mapped across **five virtual Depth-of-Field (DoF) camera planes** (from Plane -2 to Plane +2). Mouse coordinate physics dynamically tilt the centerpiece CodeTerminal while floating glass cards glide and autofocus (`blur` transitions) based on cursor movement.
-3. **🎨 Dynamic Spotlight Atmosphere**: A trailing cursor color-dodge lens spotlight that dynamically shifts its color palette based on the compiler stage (Cyan when **Scanning**, Emerald when **Optimized**, and Violet when **Buggy**).
-4. **⚡ High-Precision Signal Conduits**: Razor-thin pathway links (`strokeWidth="0.25"`) that seamlessly dissolve into transparent space before card nodes using directionally-aligned linear fading gradients, paired with round-capped liquid spark droplets (`stroke-linecap: round`).
-5. **📊 Precision Diagnostic Sparklines**: Integrated micro-visualizers into the metrics grid showing:
-   * *Dev Sandboxes*: A live animated vertical bar equalizer.
-   * *AST Accuracy*: A steady-state sine wave featuring a traveling laser spark.
-   * *Wasm Latency*: An active horizontal compile timeline pulse.
+### How Signal AI Solves This:
+* **Abstract Syntax Tree (AST) Parsing**: Signal AI analyzes code structure directly at the AST level, mapping logical trees with 99.8% precision to understand program flow rather than just treating code as raw text.
+* **Automated O(N²) -> O(N) Refactoring**: It automatically replaces brute-force, inefficient algorithms (like nested search loops) with set-lookup hash tables and linear execution strategies.
+* **JIT WebAssembly Compilation**: Compiles heavy code calculations directly into fast WebAssembly (Wasm) runtimes, bringing native execution speeds directly to sandboxed compiler environments.
+* **Sub-Millisecond Latency Control**: Reduces diagnostic latencies down to a stable `12ms` threshold, enabling real-time refactoring without disrupting active developer loops.
 
 ---
 
-## 🛠️ Local Development & Getting Started
+## 🎯 Today's Centerpiece Milestone: The Interactive Hero UI
 
-To run and preview the application on your machine:
+Today, we built the **Interactive Hero Section**—the primary conceptual gateway to the Signal AI platform. This section functions as a high-fidelity visual and technical simulation of the compiler in action, allowing developers to immediately experience the app's speed, depth, and precision:
+
+* **💻 Interactive Code Terminal**: Simulates a live optimization run in real time. It features automatic scanning sequences, active AST analysis, and a visual hot-reload transition as it successfully refactors an inefficient O(N²) Python function into an optimal O(N) lookup loop, bringing execution time down from `420ms` to `12ms`.
+* **🔮 Volumetric Holographic Orb**: Represents the central neuro-energy compiler reactor. Built with three staggered, rotating SVG concentric gear tracks, compass HUD crosshairs, active degree ticks, a sweeping scanning laser, and an inner rotating 3D wireframe octahedron encasing a white-hot spark nucleus.
+* **🕶️ Five-Plane Depth-of-Field (DoF) Parallax**: Creates immersive visual depth. Floating glass cards containing token lists, JIT WASM stacks, and optimizer matrices are mapped across five independent Z-planes (from Plane -2 to +2). Moving the mouse tilts the central terminal while cards glide and automatically refocus (`blur` transitions) based on cursor distance.
+* **🎨 Dynamic Spotlight Atmosphere**: A trailing cursor color-dodge spotlight that shifts color fields dynamically to match the compiler's diagnostic phase (Cyan when **Scanning**, Emerald when **Optimal**, and Violet when **Buggy**), unifying the landing page's aesthetic.
+* **⚡ High-Velocity Signal Conduits**: Razor-thin SVG links (`0.25px`) utilizing angle-mapped fading linear gradients that seamlessly dissolve near card nodes, carrying rounded single-bead liquid drop sparks representing active compilation packets.
+* **📊 Active Telemetry Sparklines**: Custom-animated visualizers in the metrics grid featuring:
+  * *Dev Sandboxes*: A live animated vertical bar equalizer.
+  * *AST Accuracy*: A steady-state sine wave with a traveling laser spark.
+  * *Wasm Latency*: A horizontal latency timeline tracker.
+
+---
+
+## 🚀 Getting Started & Local Preview
+
+To launch the local development environment and interact with the hero section:
 
 ### 1. Installation
-Clone the repository and install all dependencies:
+Clone this repository and install the project dependencies:
 ```bash
 npm install
 ```
 
-### 2. Run the Dev Server
-Launch Vite's hot-module-replacement (HMR) local development server:
+### 2. Run the Local Development Server
+Execute Vite's hot-module-replacement (HMR) local development server:
 ```bash
 npm run dev
 ```
 
-Once running, Vite will host the application at:
-👉 **[http://localhost:5173/](http://localhost:5173/)** 
+Once active, Vite will host the application at:
+👉 **[http://localhost:5173/](http://localhost:5173/)**
 
-*(You can `Cmd + Click` or `Ctrl + Click` the link above directly from this markdown file to open it in your browser!)*
+*(Ctrl + Click or Cmd + Click the link above directly from this README file in your editor to open the interactive local host preview!)*
 
-### 3. Production Compilation
-To compile the project into optimized, production-ready static assets:
+### 3. Build for Production
+To compile the application into fully optimized, minified static assets:
 ```bash
 npm run build
 ```
-Compiled files will be exported to the `/dist` directory.
+Compiled outputs will be generated inside the `/dist` folder, ready for premium static hosting.
