@@ -1,5 +1,9 @@
 # Signal AI // The Cognitive Refactoring & Optimization Engine
 
+🚀 **Live Production Link**: **[https://signal-ai-hero.vercel.app/](https://signal-ai-hero.vercel.app/)**
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://signal-ai-hero.vercel.app/)
+
 **Signal AI** is a next-generation AI coding assistant and static analysis engine that compiles, refactors, and optimizes complex source code in real time. By acting as an automated compiler agent, it parses developer codebases, detects architectural inefficiencies, and generates optimal subtrees—reducing execution latency from seconds to milliseconds.
 
 ---
@@ -48,10 +52,13 @@ Execute Vite's hot-module-replacement (HMR) local development server:
 npm run dev
 ```
 
-Once active, Vite will host the application at:
+Once active, Vite will host the application locally at:
 👉 **[http://localhost:5173/](http://localhost:5173/)**
 
 *(Ctrl + Click or Cmd + Click the link above directly from this README file in your editor to open the interactive local host preview!)*
+
+Alternatively, you can open the live globally accessible production deployment directly from any device (including your phone!) at:
+👉 **[https://signal-ai-hero.vercel.app/](https://signal-ai-hero.vercel.app/)**
 
 ### 3. Build for Production
 To compile the application into fully optimized, minified static assets:
