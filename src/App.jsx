@@ -15,8 +15,67 @@ import {
   X,
   Terminal as TermIcon,
   RefreshCw,
-  Sliders
-} from 'lucide-react';
+  Sliders,
+  GraduationCap,
+  Code2,
+  Award,
+  Briefcase
+} from 'lucide-react';// Stylized SVG Partner Logos
+const VoxelCloudLogo = () => (
+  <div className="flex items-center space-x-2.5 group/logo cursor-pointer text-slate-500 hover:text-cyan-400 transition-colors duration-500">
+    <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-500 group-hover/logo:scale-110 group-hover/logo:rotate-3" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M16 3 L28 10 L28 22 L16 29 L4 22 L4 10 Z" />
+      <path d="M16 3 L16 15 L28 22" />
+      <path d="M16 15 L4 22" />
+    </svg>
+    <span className="font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-slate-500 group-hover/logo:text-slate-300 transition-colors duration-500">VOXEL CLOUD</span>
+  </div>
+);
+
+const HelixAILogo = () => (
+  <div className="flex items-center space-x-2.5 group/logo cursor-pointer text-slate-500 hover:text-purple-400 transition-colors duration-500">
+    <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-500 group-hover/logo:scale-110" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4.5 10 C 10 10, 12 22, 27.5 22" />
+      <path d="M4.5 22 C 10 22, 12 10, 27.5 10" />
+      <line x1="8" y1="12.5" x2="8" y2="19.5" />
+      <line x1="16" y1="16" x2="16" y2="16" strokeWidth="3" />
+      <line x1="24" y1="19.5" x2="24" y2="12.5" />
+    </svg>
+    <span className="font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-slate-500 group-hover/logo:text-slate-300 transition-colors duration-500">HELIX AI</span>
+  </div>
+);
+
+const QuantumLogicLogo = () => (
+  <div className="flex items-center space-x-2.5 group/logo cursor-pointer text-slate-500 hover:text-[#4F7CFF] transition-colors duration-500">
+    <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-500 group-hover/logo:scale-110 group-hover/logo:rotate-6" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="16" cy="16" r="11" strokeDasharray="3, 3" />
+      <circle cx="16" cy="16" r="6" />
+      <circle cx="16" cy="16" r="2" fill="currentColor" />
+    </svg>
+    <span className="font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-slate-500 group-hover/logo:text-slate-300 transition-colors duration-500">QUANTUM LOGIC</span>
+  </div>
+);
+
+const CypherSecLogo = () => (
+  <div className="flex items-center space-x-2.5 group/logo cursor-pointer text-slate-500 hover:text-emerald-400 transition-colors duration-500">
+    <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-500 group-hover/logo:scale-110" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M16 3 L27 7 L27 15 C27 21.5, 22.5 26.5, 16 29 C9.5 26.5, 5 21.5, 5 15 L5 7 Z" />
+      <path d="M16 8 L16 24" />
+    </svg>
+    <span className="font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-slate-500 group-hover/logo:text-slate-300 transition-colors duration-500">CYPHER SEC</span>
+  </div>
+);
+
+const VertexCompilersLogo = () => (
+  <div className="flex items-center space-x-2.5 group/logo cursor-pointer text-slate-500 hover:text-pink-400 transition-colors duration-500">
+    <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-500 group-hover/logo:scale-110 group-hover/logo:rotate-12" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M16 3 L28 24 L4 24 Z" />
+      <path d="M16 3 L16 24" />
+    </svg>
+    <span className="font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-slate-500 group-hover/logo:text-slate-300 transition-colors duration-500">VERTEX COMPILERS</span>
+  </div>
+);
+
 
 export default function App() {
   const [demoActive, setDemoActive] = useState(false);
@@ -835,6 +894,271 @@ export default function App() {
         </div>
 
       </main>
+
+      {/* Laser scanline divider above section */}
+      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent relative z-20" />
+
+      {/* Futuristic Social Proof & Statistics Section */}
+      <section className="py-24 md:py-36 relative bg-slate-950/10 w-full overflow-visible z-20">
+        
+        {/* Volumetric backdrop lighting inside the section */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[75%] h-[65%] rounded-full bg-cyan-950/5 opacity-40 filter blur-[130px] pointer-events-none z-0" />
+        <div className="absolute top-1/3 left-1/4 w-[35%] h-[35%] rounded-full bg-purple-950/5 opacity-30 filter blur-[110px] pointer-events-none z-0" style={{ animationDelay: '-3s' }} />
+
+        {/* Section Heading with animation */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="max-w-3xl mx-auto text-center space-y-4 mb-20 px-6 relative z-10"
+        >
+          <p className="font-mono text-[9px] tracking-[0.24em] uppercase text-cyan-400 font-bold">Trusted Network // Growth Analytics</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-white font-display">
+            Empowering The Next Era of <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-[#4F7CFF] text-glow font-bold">
+              Software Engineering
+            </span>
+          </h2>
+          <p className="max-w-lg mx-auto text-xs sm:text-sm text-slate-400 leading-relaxed font-sans font-medium">
+            Signal AI fuels intelligence inside elite workflows. Our developer ecosystem bridges raw syntactic logic with blazing fast, high-performance compiler runtimes.
+          </p>
+        </motion.div>
+
+        {/* Partner Logos Glass Panel */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+          className="max-w-6xl mx-auto px-6 mb-24 relative z-10"
+        >
+          <div className="flex flex-wrap items-center justify-center gap-y-8 gap-x-12 md:gap-x-16 lg:gap-x-20 py-8 border-y border-white/5 bg-slate-950/20 backdrop-blur-md rounded-2xl px-8 select-none shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)]">
+            <VoxelCloudLogo />
+            <HelixAILogo />
+            <QuantumLogicLogo />
+            <CypherSecLogo />
+            <VertexCompilersLogo />
+          </div>
+        </motion.div>
+
+        {/* Milestone Statistics Cards Container */}
+        <div className="max-w-6xl mx-auto px-6 relative">
+          
+          {/* Subtle Neural Connection Channels (visible on desktop only) */}
+          <svg className="absolute top-1/2 left-0 right-0 -translate-y-1/2 w-full h-32 pointer-events-none z-0 hidden lg:block overflow-visible" viewBox="0 0 1000 120" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="neuralGradPath" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#22D3EE" stopOpacity="0" />
+                <stop offset="20%" stopColor="#22D3EE" stopOpacity="0.12" />
+                <stop offset="50%" stopColor="#A855F7" stopOpacity="0.12" />
+                <stop offset="80%" stopColor="#10B981" stopOpacity="0.12" />
+                <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            
+            {/* Elegant wavy sine-wave background conduits */}
+            <path d="M 50 60 C 200 15, 300 105, 500 60 C 700 15, 800 105, 950 60" fill="none" stroke="url(#neuralGradPath)" strokeWidth="0.8" />
+            <path d="M 50 60 C 200 105, 300 15, 500 60 C 700 105, 800 15, 950 60" fill="none" stroke="url(#neuralGradPath)" strokeWidth="0.8" strokeDasharray="3,3" />
+
+            {/* Glowing Wasm compiler spark packets using animate-signal-flow */}
+            <path 
+              d="M 50 60 C 200 15, 300 105, 500 60 C 700 15, 800 105, 950 60" 
+              fill="none" 
+              stroke="#22D3EE" 
+              strokeWidth="1.2" 
+              strokeLinecap="round"
+              className="animate-signal-flow"
+              style={{ animationDuration: '6s', strokeDasharray: '15, 220' }}
+            />
+            <path 
+              d="M 50 60 C 200 105, 300 15, 500 60 C 700 105, 800 15, 950 60" 
+              fill="none" 
+              stroke="#A855F7" 
+              strokeWidth="1.2" 
+              strokeLinecap="round"
+              className="animate-signal-flow"
+              style={{ animationDuration: '7.5s', strokeDasharray: '15, 220', animationDelay: '1.8s' }}
+            />
+          </svg>
+
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative z-10">
+            
+            {/* Card 1: 50K+ Active Students */}
+            <FloatingGlassCard
+              glowColor="cyan"
+              yOffset={[0, -4, 0]}
+              xOffset={[0, 1, 0]}
+              rotateOffset={[0, 0.3, 0]}
+              duration={6}
+              delay={0}
+              className="w-full"
+            >
+              <div className="flex flex-col h-full justify-between space-y-5">
+                <div className="flex items-center justify-between">
+                  <div className="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shadow-[0_0_10px_rgba(6,182,212,0.15)]">
+                    <GraduationCap size={16} className="text-cyan-400" />
+                  </div>
+                  <span className="text-[7.5px] font-mono text-cyan-400 font-bold bg-cyan-500/10 px-2 py-0.5 rounded-full uppercase tracking-wider select-none">
+                    ALUMNI
+                  </span>
+                </div>
+                
+                <div className="space-y-1.5 text-left">
+                  <h3 className="font-display text-4xl sm:text-[38px] font-bold text-white leading-none tracking-tight select-none">
+                    50K<span className="text-cyan-400 font-medium">+</span>
+                  </h3>
+                  <p className="text-xs font-semibold text-slate-300 tracking-wide select-none">
+                    Active Students
+                  </p>
+                  <p className="text-[9px] font-medium text-slate-500 leading-snug font-sans select-none">
+                    Logged active AST sandbox compilations globally.
+                  </p>
+                </div>
+
+                <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-3.5 text-[8px] font-mono text-slate-500 select-none">
+                  <span>SYNAPTIC CORE</span>
+                  <span className="text-cyan-400 animate-pulse flex items-center space-x-1 font-bold">
+                    <span className="w-1 h-1 rounded-full bg-cyan-400" />
+                    <span>ONLINE</span>
+                  </span>
+                </div>
+              </div>
+            </FloatingGlassCard>
+
+            {/* Card 2: 10K+ Projects Built */}
+            <FloatingGlassCard
+              glowColor="blue"
+              yOffset={[0, 4, 0]}
+              xOffset={[0, -1, 0]}
+              rotateOffset={[0, -0.3, 0]}
+              duration={6.8}
+              delay={0.4}
+              className="w-full"
+            >
+              <div className="flex flex-col h-full justify-between space-y-5">
+                <div className="flex items-center justify-between">
+                  <div className="w-9 h-9 rounded-xl bg-[#4F7CFF]/10 border border-[#4F7CFF]/20 flex items-center justify-center shadow-[0_0_10px_rgba(79,124,255,0.15)]">
+                    <Code2 size={16} className="text-[#4F7CFF]" />
+                  </div>
+                  <span className="text-[7.5px] font-mono text-[#4F7CFF] font-bold bg-[#4F7CFF]/10 px-2 py-0.5 rounded-full uppercase tracking-wider select-none">
+                    COMPILE
+                  </span>
+                </div>
+                
+                <div className="space-y-1.5 text-left">
+                  <h3 className="font-display text-4xl sm:text-[38px] font-bold text-white leading-none tracking-tight select-none">
+                    10K<span className="text-[#4F7CFF] font-medium">+</span>
+                  </h3>
+                  <p className="text-xs font-semibold text-slate-300 tracking-wide select-none">
+                    Projects Built
+                  </p>
+                  <p className="text-[9px] font-medium text-slate-500 leading-snug font-sans select-none">
+                    Production WASM bundles deployed under sandbox engines.
+                  </p>
+                </div>
+
+                <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-3.5 text-[8px] font-mono text-slate-500 select-none">
+                  <span>WASM SANDBOX</span>
+                  <span className="text-[#4F7CFF] flex items-center space-x-1 font-bold">
+                    <span className="w-1 h-1 rounded-full bg-[#4F7CFF]" />
+                    <span>STEADY</span>
+                  </span>
+                </div>
+              </div>
+            </FloatingGlassCard>
+
+            {/* Card 3: 95% Placement Rate */}
+            <FloatingGlassCard
+              glowColor="emerald"
+              yOffset={[0, -4, 0]}
+              xOffset={[0, 1, 0]}
+              rotateOffset={[0, 0.3, 0]}
+              duration={6.2}
+              delay={0.8}
+              className="w-full"
+            >
+              <div className="flex flex-col h-full justify-between space-y-5">
+                <div className="flex items-center justify-between">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shadow-[0_0_10px_rgba(16,185,129,0.15)]">
+                    <Award size={16} className="text-emerald-400" />
+                  </div>
+                  <span className="text-[7.5px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full uppercase tracking-wider select-none">
+                    SUCCESS
+                  </span>
+                </div>
+                
+                <div className="space-y-1.5 text-left">
+                  <h3 className="font-display text-4xl sm:text-[38px] font-bold text-white leading-none tracking-tight select-none">
+                    95<span className="text-emerald-400 font-medium">%</span>
+                  </h3>
+                  <p className="text-xs font-semibold text-slate-300 tracking-wide select-none">
+                    Placement Rate
+                  </p>
+                  <p className="text-[9px] font-medium text-slate-500 leading-snug font-sans select-none">
+                    Graduates launched straight into elite high-tier engineering labs.
+                  </p>
+                </div>
+
+                <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-3.5 text-[8px] font-mono text-slate-500 select-none">
+                  <span>PLACEMENT LOGS</span>
+                  <span className="text-emerald-400 flex items-center space-x-1 font-bold text-glow">
+                    <span>95.4% MATCH</span>
+                  </span>
+                </div>
+              </div>
+            </FloatingGlassCard>
+
+            {/* Card 4: 120+ Hiring Partners */}
+            <FloatingGlassCard
+              glowColor="purple"
+              yOffset={[0, 4, 0]}
+              xOffset={[0, -1, 0]}
+              rotateOffset={[0, -0.3, 0]}
+              duration={7}
+              delay={1.2}
+              className="w-full"
+            >
+              <div className="flex flex-col h-full justify-between space-y-5">
+                <div className="flex items-center justify-between">
+                  <div className="w-9 h-9 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shadow-[0_0_10px_rgba(168,85,247,0.15)]">
+                    <Briefcase size={16} className="text-purple-400" />
+                  </div>
+                  <span className="text-[7.5px] font-mono text-purple-400 font-bold bg-purple-500/10 px-2 py-0.5 rounded-full uppercase tracking-wider select-none">
+                    NETWORKS
+                  </span>
+                </div>
+                
+                <div className="space-y-1.5 text-left">
+                  <h3 className="font-display text-4xl sm:text-[38px] font-bold text-white leading-none tracking-tight select-none">
+                    120<span className="text-purple-400 font-medium">+</span>
+                  </h3>
+                  <p className="text-xs font-semibold text-slate-300 tracking-wide select-none">
+                    Hiring Partners
+                  </p>
+                  <p className="text-[9px] font-medium text-slate-500 leading-snug font-sans select-none">
+                    Collaborating corporate systems hiring AST pipeline architects.
+                  </p>
+                </div>
+
+                <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-3.5 text-[8px] font-mono text-slate-500 select-none">
+                  <span>PARTNER SYNC</span>
+                  <span className="text-purple-400 flex items-center space-x-1 font-bold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-ping" />
+                    <span>CONNECTED</span>
+                  </span>
+                </div>
+              </div>
+            </FloatingGlassCard>
+
+          </div>
+        </div>
+
+      </section>
+
+      {/* Laser scanline divider below section */}
+      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent relative z-20" />
 
       {/* Footer - Minimalist & Sleek */}
       <footer className="w-full max-w-7xl mx-auto px-6 lg:px-8 py-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-[10px] font-bold tracking-wide text-slate-500 z-20 relative select-none">
