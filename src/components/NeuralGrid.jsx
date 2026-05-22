@@ -101,7 +101,7 @@ export default function NeuralGrid() {
   );
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 bg-[#010106]">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 bg-[#010106]">
       
       {/* 1. Cinematic Widescreen Vignette & Space Overlay */}
       <div className="absolute inset-0 vignette-overlay z-10" />

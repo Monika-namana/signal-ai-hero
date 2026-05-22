@@ -19,7 +19,12 @@ import {
   GraduationCap,
   Code2,
   Award,
-  Briefcase
+  Briefcase,
+  Check,
+  Database,
+  Network,
+  Layers,
+  ShieldCheck
 } from 'lucide-react';// Stylized SVG Partner Logos
 const VoxelCloudLogo = () => (
   <div className="flex items-center space-x-2.5 group/logo cursor-pointer text-slate-500 hover:text-cyan-400 transition-colors duration-500">
@@ -76,9 +81,304 @@ const VertexCompilersLogo = () => (
   </div>
 );
 
+// --- Custom Tech Stack SVG Icons ---
+const ReactIcon = ({ className }) => (
+  <svg className={className} viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2">
+    <ellipse cx="16" cy="16" rx="4" ry="11" transform="rotate(30 16 16)" />
+    <ellipse cx="16" cy="16" rx="4" ry="11" transform="rotate(90 16 16)" />
+    <ellipse cx="16" cy="16" rx="4" ry="11" transform="rotate(150 16 16)" />
+    <circle cx="16" cy="16" r="1.8" fill="currentColor" />
+  </svg>
+);
+
+const PythonIcon = ({ className }) => (
+  <svg className={className} viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 4 H10 C8 4 7 5 7 8 V13 C7 15 8 16 10 16 H16 V18 C16 20 15 21 13 21 H9" />
+    <path d="M16 28 H22 C24 28 25 27 25 24 V19 C25 17 24 16 22 16 H16 V14 C16 12 17 11 19 11 H23" />
+    <circle cx="11.5" cy="7.5" r="1" fill="currentColor" />
+    <circle cx="20.5" cy="24.5" r="1" fill="currentColor" />
+  </svg>
+);
+
+const NodeIcon = ({ className }) => (
+  <svg className={className} viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 3 L27 9.5 L27 22.5 L16 29 L5 22.5 L5 9.5 Z" />
+    <path d="M16 3 L16 16 L27 22.5" />
+    <path d="M16 16 L5 22.5" />
+    <circle cx="16" cy="9.5" r="1.5" fill="currentColor" />
+    <circle cx="21.5" cy="19.25" r="1.5" fill="currentColor" />
+    <circle cx="10.5" cy="19.25" r="1.5" fill="currentColor" />
+  </svg>
+);
+
+const AwsIcon = ({ className }) => (
+  <svg className={className} viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M7 21 C 5 21, 4 19.5, 4 17.5 C 4 15, 6 13, 9.5 13 C 9.5 9, 13.5 6.5, 17.5 7.5 C 21 8.5, 23.5 11.5, 23.5 14.5 C 26.5 14.5, 28 16.5, 28 18.5 C 28 20.5, 26 21, 24.5 21 Z" />
+    <path d="M10 25 L22 25" strokeWidth="1.5" />
+    <path d="M16 21 L16 28" strokeWidth="1.5" strokeDasharray="2, 2" />
+  </svg>
+);
+
+const DockerIcon = ({ className }) => (
+  <svg className={className} viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="7" y="15" width="5" height="4" rx="0.5" />
+    <rect x="13" y="15" width="5" height="4" rx="0.5" />
+    <rect x="19" y="15" width="5" height="4" rx="0.5" />
+    <rect x="10" y="10" width="5" height="4" rx="0.5" />
+    <rect x="16" y="10" width="5" height="4" rx="0.5" />
+    <rect x="13" y="5" width="5" height="4" rx="0.5" />
+    <path d="M4 22 H28 C26.5 25, 23 27, 16 27 C9 27, 5.5 25, 4 22 Z" />
+  </svg>
+);
+
+const MongoIcon = ({ className }) => (
+  <svg className={className} viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 3 C16 3, 23 9, 23 16 C23 22, 19 26, 16 29 C13 26, 9 22, 9 16 C9 9, 16 3, 16 3 Z" />
+    <path d="M16 3 L16 29" strokeWidth="1.5" />
+    <path d="M12.5 12 C14.5 14, 17.5 14, 19.5 12" />
+    <path d="M11 18 C13 20, 19 20, 21 18" />
+  </svg>
+);
+
+const TailwindIcon = ({ className }) => (
+  <svg className={className} viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 7 C7 7, 4 10, 4 15 C6.5 12.5, 9.5 11.5, 13 12 C17 12.5, 19.5 15, 22.5 18 C25.5 21, 28 21, 28 21" />
+    <path d="M9.5 17 C6.5 17, 4 19, 4 23.5 C5.5 21.5, 7.5 20.5, 10 21 C13.5 21.5, 15.5 24, 18.5 26.5 C21.5 29, 24.5 27.5, 26.5 25.5" />
+  </svg>
+);
+
+const AiMlIcon = ({ className }) => (
+  <svg className={className} viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="8" cy="8" r="2.5" />
+    <circle cx="8" cy="16" r="2.5" />
+    <circle cx="8" cy="24" r="2.5" />
+    <circle cx="16" cy="12" r="2.5" />
+    <circle cx="16" cy="20" r="2.5" />
+    <circle cx="24" cy="8" r="2.5" />
+    <circle cx="24" cy="16" r="2.5" />
+    <circle cx="24" cy="24" r="2.5" />
+    <line x1="10.5" y1="9" x2="13.5" y2="11" />
+    <line x1="10.5" y1="15" x2="13.5" y2="13" />
+    <line x1="10.5" y1="17" x2="13.5" y2="19" />
+    <line x1="10.5" y1="23" x2="13.5" y2="21" />
+    <line x1="18.5" y1="11" x2="21.5" y2="9" />
+    <line x1="18.5" y1="13" x2="21.5" y2="15" />
+    <line x1="18.5" y1="19" x2="21.5" y2="17" />
+    <line x1="18.5" y1="21" x2="21.5" y2="23" />
+    <line x1="8" y1="10.5" x2="8" y2="13.5" />
+    <line x1="8" y1="18.5" x2="8" y2="21.5" />
+    <line x1="24" y1="10.5" x2="24" y2="13.5" />
+    <line x1="24" y1="18.5" x2="24" y2="21.5" />
+  </svg>
+);
+
+const techStack = [
+  {
+    id: "aws",
+    name: "AWS",
+    icon: AwsIcon,
+    glowColor: "from-orange-500 to-amber-500",
+    glowLight: "rgba(249,115,22,0.45)",
+    borderColor: "group-hover:border-orange-500/40",
+    badgeColor: "text-orange-400 bg-orange-500/10",
+    pos: { left: "88%", top: "50%", x: 880, y: 240 },
+    stats: "SERVICES // SYNCED",
+    status: "PROVISIONED // OK",
+    description: "Cloud compilation mesh auto-provisions multi-region edge node networks with zero configuration overhead.",
+    floatOffset: [0, -6, 0],
+    floatDuration: 6.8,
+    floatDelay: 0.1,
+  },
+  {
+    id: "docker",
+    name: "Docker",
+    icon: DockerIcon,
+    glowColor: "from-cyan-500 to-blue-500",
+    glowLight: "rgba(6,182,212,0.45)",
+    borderColor: "group-hover:border-cyan-500/40",
+    badgeColor: "text-cyan-400 bg-cyan-500/10",
+    pos: { left: "77%", top: "75%", x: 770, y: 360 },
+    stats: "CONTAINER // LOCKED",
+    status: "SANDBOX // SECURE",
+    description: "Isolates execution pipelines inside lightweight, lightning-fast WASM sandboxes to prevent dependency pollution.",
+    floatOffset: [0, 5, 0],
+    floatDuration: 7.2,
+    floatDelay: 0.4,
+  },
+  {
+    id: "mongodb",
+    name: "MongoDB",
+    icon: MongoIcon,
+    glowColor: "from-emerald-500 to-teal-500",
+    glowLight: "rgba(16,185,129,0.45)",
+    borderColor: "group-hover:border-emerald-500/40",
+    badgeColor: "text-emerald-400 bg-emerald-500/10",
+    pos: { left: "50%", top: "86%", x: 500, y: 413 },
+    stats: "COLLECTION // ONLINE",
+    status: "CLUSTER // ACTIVE",
+    description: "Reactive persistence layer streams optimized document-model subtrees with ultra-low cursor latency.",
+    floatOffset: [-4, 0, -4],
+    floatDuration: 8.0,
+    floatDelay: 0.7,
+  },
+  {
+    id: "tailwind",
+    name: "Tailwind CSS",
+    icon: TailwindIcon,
+    glowColor: "from-sky-400 to-cyan-500",
+    glowLight: "rgba(56,189,248,0.45)",
+    borderColor: "group-hover:border-sky-500/40",
+    badgeColor: "text-sky-400 bg-sky-500/10",
+    pos: { left: "23%", top: "75%", x: 230, y: 360 },
+    stats: "COMPILING // CSS",
+    status: "AT-RULES // FLUSHED",
+    description: "JIT utility compiler pipes style trees straight into high-performance atomic stylesheets on the fly.",
+    floatOffset: [0, -5, 0],
+    floatDuration: 6.4,
+    floatDelay: 1.0,
+  },
+  {
+    id: "ai-ml",
+    name: "AI / ML Core",
+    icon: AiMlIcon,
+    glowColor: "from-purple-500 to-indigo-500",
+    glowLight: "rgba(168,85,247,0.45)",
+    borderColor: "group-hover:border-purple-500/40",
+    badgeColor: "text-purple-400 bg-purple-500/10",
+    pos: { left: "12%", top: "50%", x: 120, y: 240 },
+    stats: "SYNAPSE // ACTIVE",
+    status: "COGNITIVE // RUNNING",
+    description: "Deep learning heuristics parse and restructure source nodes to optimize algorithms for sub-millisecond loads.",
+    floatOffset: [0, 6, 0],
+    floatDuration: 7.6,
+    floatDelay: 1.3,
+  },
+  {
+    id: "react",
+    name: "React 19",
+    icon: ReactIcon,
+    glowColor: "from-cyan-400 to-blue-600",
+    glowLight: "rgba(34,211,238,0.45)",
+    borderColor: "group-hover:border-cyan-400/40",
+    badgeColor: "text-cyan-400 bg-cyan-500/10",
+    pos: { left: "23%", top: "25%", x: 230, y: 120 },
+    stats: "VIRTUAL_DOM // ACTIVE",
+    status: "FIBER_TREE // PARSED",
+    description: "Sleek frontend compiler transforms reactive component declarations into lightning-fast server-rendered binaries.",
+    floatOffset: [0, -7, 0],
+    floatDuration: 6.0,
+    floatDelay: 1.6,
+  },
+  {
+    id: "python",
+    name: "Python Core",
+    icon: PythonIcon,
+    glowColor: "from-yellow-500 to-cyan-500",
+    glowLight: "rgba(234,179,8,0.45)",
+    borderColor: "group-hover:border-yellow-500/40",
+    badgeColor: "text-yellow-400 bg-yellow-500/10",
+    pos: { left: "50%", top: "14%", x: 500, y: 67 },
+    stats: "AST_COMPLEXITY // MIN",
+    status: "PY_BYTECODE // GEN",
+    description: "Cognitive refactoring subagents translate resource-heavy loops into hyper-optimized set queries.",
+    floatOffset: [4, 0, 4],
+    floatDuration: 8.4,
+    floatDelay: 1.9,
+  },
+  {
+    id: "node",
+    name: "Node.js ESM",
+    icon: NodeIcon,
+    glowColor: "from-green-500 to-emerald-500",
+    glowLight: "rgba(34,197,94,0.45)",
+    borderColor: "group-hover:border-green-500/40",
+    badgeColor: "text-green-400 bg-green-500/10",
+    pos: { left: "77%", top: "25%", x: 770, y: 120 },
+    stats: "V8_RUNTIME // ENGAGED",
+    status: "EVENT_LOOP // STABLE",
+    description: "Asynchronous I/O compiler engine pipelines database queries and network logs in high-frequency streams.",
+    floatOffset: [0, 7, 0],
+    floatDuration: 7.0,
+    floatDelay: 2.2,
+  }
+];
+
+const testimonials = [
+  {
+    id: 1,
+    name: "Alex Rivera",
+    role: "Compiler Engineer @ Helix AI",
+    avatar: "AR",
+    glowColor: "from-cyan-400 to-blue-600",
+    avatarGlow: "border-cyan-500/30 text-cyan-400 bg-cyan-500/5",
+    quote: "Signal AI's cognitive AST parsing engine completely re-wired how I think about compiler targets. In under 3 months, I built a sub-millisecond JIT compiler sandbox that secured my placement.",
+    placement: "✓ 100% SALARY INCREMENT // PLACED",
+    telemetry: "VERIFIED_COMPILATION // HASH_9F3E",
+    stats: "LATENCY: 0.08ms // VIRTUAL_DOM",
+    floatOffset: [0, -6, 0],
+    duration: 6.5,
+    delay: 0,
+  },
+  {
+    id: 2,
+    name: "Li Wei",
+    role: "Autonomous Agent Researcher @ Voxel Cloud",
+    avatar: "LW",
+    glowColor: "from-purple-500 to-pink-500",
+    avatarGlow: "border-purple-500/30 text-purple-400 bg-purple-500/5",
+    quote: "The multi-agent orchestration grid taught me how to pipeline cognitive subagents for scalable cloud models. The AST loop refactoring tools helped me resolve memory leaks in O(N²) iterations.",
+    placement: "✓ PLACED IN 12 DAYS // v2.4",
+    telemetry: "ORCHESTRATION_OK // ACTIVE",
+    stats: "COGNITIVE_CORES: 8/8 READY",
+    floatOffset: [0, 6, 0],
+    duration: 7.2,
+    delay: 0.2,
+  },
+  {
+    id: 3,
+    name: "Elena Rostova",
+    role: "Senior WASM Architect @ Cypher Sec",
+    avatar: "ER",
+    glowColor: "from-emerald-400 to-teal-600",
+    avatarGlow: "border-emerald-500/30 text-emerald-400 bg-emerald-500/5",
+    quote: "Building WASM-targeted compiling sandboxes on top of AWS and Docker gave me concrete, production-ready portfolio systems. My hiring manager was stunned by the latency profiles I achieved.",
+    placement: "✓ 240% PIPELINE VELOCITY // PRO",
+    telemetry: "WASM_TARGETING // DEPLOYED",
+    stats: "SANDBOX: ACTIVE // 12ms",
+    floatOffset: [0, -5, 0],
+    duration: 6.8,
+    delay: 0.4,
+  }
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.05
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30, filter: 'blur(5px)' },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    filter: 'blur(0px)',
+    transition: { duration: 0.65, ease: [0.25, 1, 0.5, 1] }
+  }
+};
 
 export default function App() {
   const [demoActive, setDemoActive] = useState(false);
+  const [hoveredStep, setHoveredStep] = useState(null);
+  const [isYearly, setIsYearly] = useState(false);
+  const [hoveredFeature, setHoveredFeature] = useState(null);
+  const [hoveredTech, setHoveredTech] = useState(null);
+  const [hoveredQuote, setHoveredQuote] = useState(null);
   const [terminalPhase, setTerminalPhase] = useState('buggy');
   const [cursorCoords, setCursorCoords] = useState({ x: -250, y: -250 });
   const [cursorHovering, setCursorHovering] = useState(false);
@@ -219,16 +519,20 @@ export default function App() {
             <span>Features</span>
             <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-cyan-400 transition-all group-hover:w-full" />
           </a>
+          <a href="#tech" className="hover:text-white transition-colors relative group py-1">
+            <span>Tech Stack</span>
+            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-cyan-400 transition-all group-hover:w-full" />
+          </a>
           <a href="#compiler" className="hover:text-white transition-colors relative group py-1">
             <span>Playground</span>
             <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-cyan-400 transition-all group-hover:w-full" />
           </a>
-          <a href="#docs" className="hover:text-white transition-colors relative group py-1">
-            <span>Docs</span>
-            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-cyan-400 transition-all group-hover:w-full" />
-          </a>
           <a href="#pricing" className="hover:text-white transition-colors relative group py-1">
             <span>Pricing</span>
+            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-cyan-400 transition-all group-hover:w-full" />
+          </a>
+          <a href="#testimonials" className="hover:text-white transition-colors relative group py-1">
+            <span>Triumphs</span>
             <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-cyan-400 transition-all group-hover:w-full" />
           </a>
         </nav>
@@ -318,7 +622,7 @@ export default function App() {
             }}
             className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto"
           >
-            <button className="relative group px-8 py-4 rounded-xl overflow-hidden font-semibold text-[11px] uppercase tracking-[0.16em] text-center shadow-[0_8px_35px_rgba(34,211,238,0.18)] transition-all active:scale-[0.98]">
+            <button className="relative group px-9 py-4 rounded-xl overflow-hidden font-bold font-mono text-[10px] tracking-[0.2em] uppercase transition-all duration-300 active:scale-[0.98] text-center shadow-[0_8px_35px_rgba(34,211,238,0.18)]">
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#162E93] via-cyan-500 to-[#4F7CFF] bg-[length:200%_auto] animate-[gradient_4s_linear_infinite] group-hover:scale-105 transition-transform" />
               <span className="relative text-white flex items-center justify-center space-x-2">
                 <span>Start Building Free</span>
@@ -328,7 +632,7 @@ export default function App() {
 
             <button 
               onClick={() => setDemoActive(true)}
-              className="px-8 py-4 rounded-xl font-semibold text-[11px] uppercase tracking-[0.16em] bg-white/4 hover:bg-white/8 border border-white/5 hover:border-cyan-500/20 transition-all text-slate-200 flex items-center justify-center space-x-2 group active:scale-[0.98]"
+              className="px-9 py-4 rounded-xl font-bold font-mono text-[10px] tracking-[0.2em] uppercase bg-white/4 hover:bg-white/8 border border-white/5 hover:border-cyan-500/20 transition-all text-slate-200 flex items-center justify-center space-x-2 group active:scale-[0.98]"
             >
               <Play size={12} className="fill-slate-200 text-slate-200 group-hover:scale-110 transition-transform group-hover:text-cyan-400 group-hover:fill-cyan-400" />
               <span>Watch Demo</span>
@@ -570,6 +874,7 @@ export default function App() {
             }}
             transition={{ type: "spring", stiffness: 90, damping: 25 }}
             className="w-full max-w-[530px] px-3.5 sm:px-0 relative z-10"
+            id="compiler"
           >
             <CodeTerminal phase={terminalPhase} setPhase={setTerminalPhase} />
           </motion.div>
@@ -899,11 +1204,11 @@ export default function App() {
       <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent relative z-20" />
 
       {/* Futuristic Social Proof & Statistics Section */}
-      <section className="py-24 md:py-36 relative bg-slate-950/10 w-full overflow-visible z-20">
+      <section className="py-28 md:py-40 relative bg-slate-950/10 w-full overflow-visible z-20">
         
         {/* Volumetric backdrop lighting inside the section */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[75%] h-[65%] rounded-full bg-cyan-950/5 opacity-40 filter blur-[130px] pointer-events-none z-0" />
-        <div className="absolute top-1/3 left-1/4 w-[35%] h-[35%] rounded-full bg-purple-950/5 opacity-30 filter blur-[110px] pointer-events-none z-0" style={{ animationDelay: '-3s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[75%] h-[65%] rounded-full bg-cyan-950/10 opacity-30 filter blur-[130px] pointer-events-none z-0 animate-pulse-slow" />
+        <div className="absolute top-1/3 left-1/4 w-[35%] h-[35%] rounded-full bg-purple-950/5 opacity-30 filter blur-[110px] pointer-events-none z-0 animate-pulse-slow" style={{ animationDelay: '-3s' }} />
 
         {/* Section Heading with animation */}
         <motion.div 
@@ -911,16 +1216,24 @@ export default function App() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="max-w-3xl mx-auto text-center space-y-4 mb-20 px-6 relative z-10"
+          className="max-w-3xl mx-auto text-center mb-20 px-6 relative z-10"
         >
-          <p className="font-mono text-[9px] tracking-[0.24em] uppercase text-cyan-400 font-bold">Trusted Network // Growth Analytics</p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-white font-display">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass border-cyan-500/10 shadow-[0_0_15px_rgba(6,182,212,0.05)] mb-4">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-400"></span>
+            </span>
+            <span className="font-mono text-[8px] sm:text-[9px] tracking-[0.22em] uppercase text-cyan-400 font-bold">
+              Trusted Network // Growth Analytics
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-white font-display leading-[1.15] mb-4">
             Empowering The Next Era of <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-[#4F7CFF] text-glow font-bold">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-[#4F7CFF] to-purple-400 text-glow font-bold">
               Software Engineering
             </span>
           </h2>
-          <p className="max-w-lg mx-auto text-xs sm:text-sm text-slate-400 leading-relaxed font-sans font-medium">
+          <p className="max-w-xl mx-auto text-xs sm:text-sm text-slate-400 leading-relaxed font-sans font-medium">
             Signal AI fuels intelligence inside elite workflows. Our developer ecosystem bridges raw syntactic logic with blazing fast, high-performance compiler runtimes.
           </p>
         </motion.div>
@@ -983,181 +1296,1784 @@ export default function App() {
           </svg>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative z-10">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative z-10"
+          >
             
             {/* Card 1: 50K+ Active Students */}
-            <FloatingGlassCard
-              glowColor="cyan"
-              yOffset={[0, -4, 0]}
-              xOffset={[0, 1, 0]}
-              rotateOffset={[0, 0.3, 0]}
-              duration={6}
-              delay={0}
-              className="w-full"
-            >
-              <div className="flex flex-col h-full justify-between space-y-5">
-                <div className="flex items-center justify-between">
-                  <div className="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shadow-[0_0_10px_rgba(6,182,212,0.15)]">
-                    <GraduationCap size={16} className="text-cyan-400" />
+            <motion.div variants={itemVariants} className="w-full flex">
+              <FloatingGlassCard
+                glowColor="cyan"
+                yOffset={[0, -4, 0]}
+                xOffset={[0, 1, 0]}
+                rotateOffset={[0, 0.3, 0]}
+                duration={6}
+                delay={0}
+                className="w-full"
+              >
+                <div className="flex flex-col h-full justify-between space-y-5">
+                  <div className="flex items-center justify-between">
+                    <div className="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shadow-[0_0_10px_rgba(6,182,212,0.15)]">
+                      <GraduationCap size={16} className="text-cyan-400" />
+                    </div>
+                    <span className="text-[7.5px] font-mono text-cyan-400 font-bold bg-cyan-500/10 px-2 py-0.5 rounded-full uppercase tracking-wider select-none">
+                      ALUMNI
+                    </span>
                   </div>
-                  <span className="text-[7.5px] font-mono text-cyan-400 font-bold bg-cyan-500/10 px-2 py-0.5 rounded-full uppercase tracking-wider select-none">
-                    ALUMNI
-                  </span>
-                </div>
-                
-                <div className="space-y-1.5 text-left">
-                  <h3 className="font-display text-4xl sm:text-[38px] font-bold text-white leading-none tracking-tight select-none">
-                    50K<span className="text-cyan-400 font-medium">+</span>
-                  </h3>
-                  <p className="text-xs font-semibold text-slate-300 tracking-wide select-none">
-                    Active Students
-                  </p>
-                  <p className="text-[9px] font-medium text-slate-500 leading-snug font-sans select-none">
-                    Logged active AST sandbox compilations globally.
-                  </p>
-                </div>
+                  
+                  <div className="space-y-1.5 text-left">
+                    <h3 className="font-display text-4xl sm:text-[38px] font-bold text-white leading-none tracking-tight select-none">
+                      50K<span className="text-cyan-400 font-medium">+</span>
+                    </h3>
+                    <p className="text-xs font-semibold text-slate-300 tracking-wide select-none">
+                      Active Students
+                    </p>
+                    <p className="text-[9px] font-medium text-slate-500 leading-snug font-sans select-none">
+                      Logged active AST sandbox compilations globally.
+                    </p>
+                  </div>
 
-                <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-3.5 text-[8px] font-mono text-slate-500 select-none">
-                  <span>SYNAPTIC CORE</span>
-                  <span className="text-cyan-400 animate-pulse flex items-center space-x-1 font-bold">
-                    <span className="w-1 h-1 rounded-full bg-cyan-400" />
-                    <span>ONLINE</span>
-                  </span>
+                  <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-3.5 text-[8px] font-mono text-slate-500 select-none">
+                    <span>SYNAPTIC CORE</span>
+                    <span className="text-cyan-400 animate-pulse flex items-center space-x-1 font-bold">
+                      <span className="w-1 h-1 rounded-full bg-cyan-400" />
+                      <span>ONLINE</span>
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </FloatingGlassCard>
+              </FloatingGlassCard>
+            </motion.div>
 
             {/* Card 2: 10K+ Projects Built */}
-            <FloatingGlassCard
-              glowColor="blue"
-              yOffset={[0, 4, 0]}
-              xOffset={[0, -1, 0]}
-              rotateOffset={[0, -0.3, 0]}
-              duration={6.8}
-              delay={0.4}
-              className="w-full"
-            >
-              <div className="flex flex-col h-full justify-between space-y-5">
-                <div className="flex items-center justify-between">
-                  <div className="w-9 h-9 rounded-xl bg-[#4F7CFF]/10 border border-[#4F7CFF]/20 flex items-center justify-center shadow-[0_0_10px_rgba(79,124,255,0.15)]">
-                    <Code2 size={16} className="text-[#4F7CFF]" />
+            <motion.div variants={itemVariants} className="w-full flex">
+              <FloatingGlassCard
+                glowColor="blue"
+                yOffset={[0, 4, 0]}
+                xOffset={[0, -1, 0]}
+                rotateOffset={[0, -0.3, 0]}
+                duration={6.8}
+                delay={0.4}
+                className="w-full"
+              >
+                <div className="flex flex-col h-full justify-between space-y-5">
+                  <div className="flex items-center justify-between">
+                    <div className="w-9 h-9 rounded-xl bg-[#4F7CFF]/10 border border-[#4F7CFF]/20 flex items-center justify-center shadow-[0_0_10px_rgba(79,124,255,0.15)]">
+                      <Code2 size={16} className="text-[#4F7CFF]" />
+                    </div>
+                    <span className="text-[7.5px] font-mono text-[#4F7CFF] font-bold bg-[#4F7CFF]/10 px-2 py-0.5 rounded-full uppercase tracking-wider select-none">
+                      COMPILE
+                    </span>
                   </div>
-                  <span className="text-[7.5px] font-mono text-[#4F7CFF] font-bold bg-[#4F7CFF]/10 px-2 py-0.5 rounded-full uppercase tracking-wider select-none">
-                    COMPILE
-                  </span>
-                </div>
-                
-                <div className="space-y-1.5 text-left">
-                  <h3 className="font-display text-4xl sm:text-[38px] font-bold text-white leading-none tracking-tight select-none">
-                    10K<span className="text-[#4F7CFF] font-medium">+</span>
-                  </h3>
-                  <p className="text-xs font-semibold text-slate-300 tracking-wide select-none">
-                    Projects Built
-                  </p>
-                  <p className="text-[9px] font-medium text-slate-500 leading-snug font-sans select-none">
-                    Production WASM bundles deployed under sandbox engines.
-                  </p>
-                </div>
+                  
+                  <div className="space-y-1.5 text-left">
+                    <h3 className="font-display text-4xl sm:text-[38px] font-bold text-white leading-none tracking-tight select-none">
+                      10K<span className="text-[#4F7CFF] font-medium">+</span>
+                    </h3>
+                    <p className="text-xs font-semibold text-slate-300 tracking-wide select-none">
+                      Projects Built
+                    </p>
+                    <p className="text-[9px] font-medium text-slate-500 leading-snug font-sans select-none">
+                      Production WASM bundles deployed under sandbox engines.
+                    </p>
+                  </div>
 
-                <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-3.5 text-[8px] font-mono text-slate-500 select-none">
-                  <span>WASM SANDBOX</span>
-                  <span className="text-[#4F7CFF] flex items-center space-x-1 font-bold">
-                    <span className="w-1 h-1 rounded-full bg-[#4F7CFF]" />
-                    <span>STEADY</span>
-                  </span>
+                  <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-3.5 text-[8px] font-mono text-slate-500 select-none">
+                    <span>WASM SANDBOX</span>
+                    <span className="text-[#4F7CFF] flex items-center space-x-1 font-bold">
+                      <span className="w-1 h-1 rounded-full bg-[#4F7CFF]" />
+                      <span>STEADY</span>
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </FloatingGlassCard>
+              </FloatingGlassCard>
+            </motion.div>
 
             {/* Card 3: 95% Placement Rate */}
-            <FloatingGlassCard
-              glowColor="emerald"
-              yOffset={[0, -4, 0]}
-              xOffset={[0, 1, 0]}
-              rotateOffset={[0, 0.3, 0]}
-              duration={6.2}
-              delay={0.8}
-              className="w-full"
-            >
-              <div className="flex flex-col h-full justify-between space-y-5">
-                <div className="flex items-center justify-between">
-                  <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shadow-[0_0_10px_rgba(16,185,129,0.15)]">
-                    <Award size={16} className="text-emerald-400" />
+            <motion.div variants={itemVariants} className="w-full flex">
+              <FloatingGlassCard
+                glowColor="emerald"
+                yOffset={[0, -4, 0]}
+                xOffset={[0, 1, 0]}
+                rotateOffset={[0, 0.3, 0]}
+                duration={6.2}
+                delay={0.8}
+                className="w-full"
+              >
+                <div className="flex flex-col h-full justify-between space-y-5">
+                  <div className="flex items-center justify-between">
+                    <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shadow-[0_0_10px_rgba(16,185,129,0.15)]">
+                      <Award size={16} className="text-emerald-400" />
+                    </div>
+                    <span className="text-[7.5px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full uppercase tracking-wider select-none">
+                      SUCCESS
+                    </span>
                   </div>
-                  <span className="text-[7.5px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full uppercase tracking-wider select-none">
-                    SUCCESS
-                  </span>
-                </div>
-                
-                <div className="space-y-1.5 text-left">
-                  <h3 className="font-display text-4xl sm:text-[38px] font-bold text-white leading-none tracking-tight select-none">
-                    95<span className="text-emerald-400 font-medium">%</span>
-                  </h3>
-                  <p className="text-xs font-semibold text-slate-300 tracking-wide select-none">
-                    Placement Rate
-                  </p>
-                  <p className="text-[9px] font-medium text-slate-500 leading-snug font-sans select-none">
-                    Graduates launched straight into elite high-tier engineering labs.
-                  </p>
-                </div>
+                  
+                  <div className="space-y-1.5 text-left">
+                    <h3 className="font-display text-4xl sm:text-[38px] font-bold text-white leading-none tracking-tight select-none">
+                      95<span className="text-emerald-400 font-medium">%</span>
+                    </h3>
+                    <p className="text-xs font-semibold text-slate-300 tracking-wide select-none">
+                      Placement Rate
+                    </p>
+                    <p className="text-[9px] font-medium text-slate-500 leading-snug font-sans select-none">
+                      Graduates launched straight into elite high-tier engineering labs.
+                    </p>
+                  </div>
 
-                <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-3.5 text-[8px] font-mono text-slate-500 select-none">
-                  <span>PLACEMENT LOGS</span>
-                  <span className="text-emerald-400 flex items-center space-x-1 font-bold text-glow">
-                    <span>95.4% MATCH</span>
-                  </span>
+                  <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-3.5 text-[8px] font-mono text-slate-500 select-none">
+                    <span>PLACEMENT LOGS</span>
+                    <span className="text-emerald-400 flex items-center space-x-1 font-bold text-glow">
+                      <span>95.4% MATCH</span>
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </FloatingGlassCard>
+              </FloatingGlassCard>
+            </motion.div>
 
             {/* Card 4: 120+ Hiring Partners */}
-            <FloatingGlassCard
-              glowColor="purple"
-              yOffset={[0, 4, 0]}
-              xOffset={[0, -1, 0]}
-              rotateOffset={[0, -0.3, 0]}
-              duration={7}
-              delay={1.2}
-              className="w-full"
-            >
-              <div className="flex flex-col h-full justify-between space-y-5">
-                <div className="flex items-center justify-between">
-                  <div className="w-9 h-9 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shadow-[0_0_10px_rgba(168,85,247,0.15)]">
-                    <Briefcase size={16} className="text-purple-400" />
+            <motion.div variants={itemVariants} className="w-full flex">
+              <FloatingGlassCard
+                glowColor="purple"
+                yOffset={[0, 4, 0]}
+                xOffset={[0, -1, 0]}
+                rotateOffset={[0, -0.3, 0]}
+                duration={7}
+                delay={1.2}
+                className="w-full"
+              >
+                <div className="flex flex-col h-full justify-between space-y-5">
+                  <div className="flex items-center justify-between">
+                    <div className="w-9 h-9 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shadow-[0_0_10px_rgba(168,85,247,0.15)]">
+                      <Briefcase size={16} className="text-purple-400" />
+                    </div>
+                    <span className="text-[7.5px] font-mono text-purple-400 font-bold bg-purple-500/10 px-2 py-0.5 rounded-full uppercase tracking-wider select-none">
+                      NETWORKS
+                    </span>
                   </div>
-                  <span className="text-[7.5px] font-mono text-purple-400 font-bold bg-purple-500/10 px-2 py-0.5 rounded-full uppercase tracking-wider select-none">
-                    NETWORKS
-                  </span>
-                </div>
-                
-                <div className="space-y-1.5 text-left">
-                  <h3 className="font-display text-4xl sm:text-[38px] font-bold text-white leading-none tracking-tight select-none">
-                    120<span className="text-purple-400 font-medium">+</span>
-                  </h3>
-                  <p className="text-xs font-semibold text-slate-300 tracking-wide select-none">
-                    Hiring Partners
-                  </p>
-                  <p className="text-[9px] font-medium text-slate-500 leading-snug font-sans select-none">
-                    Collaborating corporate systems hiring AST pipeline architects.
-                  </p>
-                </div>
+                  
+                  <div className="space-y-1.5 text-left">
+                    <h3 className="font-display text-4xl sm:text-[38px] font-bold text-white leading-none tracking-tight select-none">
+                      120<span className="text-purple-400 font-medium">+</span>
+                    </h3>
+                    <p className="text-xs font-semibold text-slate-300 tracking-wide select-none">
+                      Hiring Partners
+                    </p>
+                    <p className="text-[9px] font-medium text-slate-500 leading-snug font-sans select-none">
+                      Collaborating corporate systems hiring AST pipeline architects.
+                    </p>
+                  </div>
 
-                <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-3.5 text-[8px] font-mono text-slate-500 select-none">
-                  <span>PARTNER SYNC</span>
-                  <span className="text-purple-400 flex items-center space-x-1 font-bold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-ping" />
-                    <span>CONNECTED</span>
-                  </span>
+                  <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-3.5 text-[8px] font-mono text-slate-500 select-none">
+                    <span>PARTNER SYNC</span>
+                    <span className="text-purple-400 flex items-center space-x-1 font-bold">
+                      <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-ping" />
+                      <span>CONNECTED</span>
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </FloatingGlassCard>
+              </FloatingGlassCard>
+            </motion.div>
 
-          </div>
+          </motion.div>
         </div>
 
       </section>
 
       {/* Laser scanline divider below section */}
+      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent relative z-20" />
+
+      {/* Futuristic "How It Works" Section */}
+      <section id="workflow" className="py-28 md:py-40 relative bg-[#010106]/40 w-full overflow-visible z-20">
+        
+        {/* Volumetric backdrop atmospheric light */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[70%] rounded-full bg-cyan-950/10 opacity-30 filter blur-[140px] pointer-events-none z-0 animate-pulse-slow" />
+        
+        {/* Step Section Heading */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="max-w-3xl mx-auto text-center mb-24 px-6 relative z-10"
+        >
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass border-cyan-500/10 shadow-[0_0_15px_rgba(6,182,212,0.05)] mb-4">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-400"></span>
+            </span>
+            <span className="font-mono text-[8px] sm:text-[9px] tracking-[0.22em] uppercase text-cyan-400 font-bold">
+              Autonomous Protocol // Pipeline
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-white font-display leading-[1.15] mb-4">
+            How Signal AI <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-[#4F7CFF] to-purple-400 text-glow font-bold">
+              Refactors Code
+            </span>
+          </h2>
+          <p className="max-w-xl mx-auto text-xs sm:text-sm text-slate-400 leading-relaxed font-sans font-medium">
+            Watch our three-stage cognitive architecture parse syntax graphs, compile subtrees, and deploy high-performance optimized runtimes.
+          </p>
+        </motion.div>
+
+        {/* 3-Step Workflow Container */}
+        <div className="max-w-6xl mx-auto px-6 relative">
+          
+          {/* Sweeping Connected SVG Signal Paths */}
+          <svg className="absolute top-1/2 left-0 right-0 -translate-y-1/2 w-full h-32 pointer-events-none z-0 hidden lg:block overflow-visible" viewBox="0 0 1000 120" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#22D3EE" stopOpacity={hoveredStep === 1 ? 0.35 : 0.12} />
+                <stop offset="50%" stopColor="#A855F7" stopOpacity={hoveredStep === 2 ? 0.35 : 0.12} />
+                <stop offset="100%" stopColor="#10B981" stopOpacity={hoveredStep === 3 ? 0.35 : 0.12} />
+              </linearGradient>
+            </defs>
+
+            {/* Wavy Connected Tracks */}
+            <path d="M 100 60 C 250 20, 350 100, 500 60 C 650 20, 750 100, 900 60" fill="none" stroke="url(#flowGrad)" strokeWidth="0.8" />
+            <path d="M 100 60 C 250 100, 350 20, 500 60 C 650 100, 750 20, 900 60" fill="none" stroke="url(#flowGrad)" strokeWidth="0.8" strokeDasharray="3, 3" />
+
+            {/* Glowing flowing pulse packets (speeds up dynamically on card hover) */}
+            <path 
+              d="M 100 60 C 250 20, 350 100, 500 60 C 650 20, 750 100, 900 60" 
+              fill="none" 
+              stroke="#22D3EE" 
+              strokeWidth="1.2" 
+              strokeLinecap="round"
+              className="animate-signal-flow"
+              style={{ 
+                animationDuration: hoveredStep === 1 ? '1.8s' : '5s', 
+                strokeDasharray: '12, 180',
+                filter: hoveredStep === 1 ? 'drop-shadow(0 0 4px rgba(34, 211, 238, 0.8))' : 'none'
+              }}
+            />
+            
+            <path 
+              d="M 100 60 C 250 100, 350 20, 500 60 C 650 100, 750 20, 900 60" 
+              fill="none" 
+              stroke="#A855F7" 
+              strokeWidth="1.2" 
+              strokeLinecap="round"
+              className="animate-signal-flow"
+              style={{ 
+                animationDuration: hoveredStep === 2 ? '2.0s' : '6s', 
+                strokeDasharray: '12, 180', 
+                animationDelay: '1.2s',
+                filter: hoveredStep === 2 ? 'drop-shadow(0 0 4px rgba(168, 85, 247, 0.8))' : 'none'
+              }}
+            />
+
+            <path 
+              d="M 100 60 C 250 20, 350 100, 500 60 C 650 20, 750 100, 900 60" 
+              fill="none" 
+              stroke="#10B981" 
+              strokeWidth="1.2" 
+              strokeLinecap="round"
+              className="animate-signal-flow"
+              style={{ 
+                animationDuration: hoveredStep === 3 ? '1.8s' : '5.5s', 
+                strokeDasharray: '12, 180', 
+                animationDelay: '2.5s',
+                filter: hoveredStep === 3 ? 'drop-shadow(0 0 4px rgba(16, 185, 129, 0.8))' : 'none'
+              }}
+            />
+          </svg>
+
+          {/* Steps Grid */}
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 relative z-10"
+          >
+            
+            {/* Step 1: Learn */}
+            <motion.div 
+              variants={itemVariants}
+              className="w-full flex"
+              onMouseEnter={() => setHoveredStep(1)}
+              onMouseLeave={() => setHoveredStep(null)}
+            >
+              <FloatingGlassCard
+                glowColor="cyan"
+                yOffset={[0, -5, 0]}
+                xOffset={[0, 1, 0]}
+                rotateOffset={[0, 0.4, 0]}
+                duration={6}
+                delay={0}
+                className={`w-full transition-all duration-300 ${hoveredStep === 1 ? 'border-cyan-500/30 shadow-[0_15px_45px_rgba(6,182,212,0.18)]' : ''}`}
+              >
+                <div className="flex flex-col space-y-6">
+                  {/* Top Row with visual badge and icon */}
+                  <div className="flex items-center justify-between select-none">
+                    <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shadow-[0_0_10px_rgba(6,182,212,0.15)]">
+                      <Sliders size={18} className="text-cyan-400 animate-pulse" />
+                    </div>
+                    <span className="font-mono text-[9px] font-bold text-cyan-400 bg-cyan-500/10 px-2.5 py-0.8 rounded-full uppercase tracking-wider">
+                      Step 01 // LEARN
+                    </span>
+                  </div>
+
+                  {/* Title and Descriptions */}
+                  <div className="space-y-2 text-left select-none">
+                    <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-white font-display">
+                      Ingest & Analyze
+                    </h3>
+                    <p className="text-[10px] font-mono text-cyan-400 uppercase tracking-widest leading-none font-semibold">
+                      Semantic AST Parsing
+                    </p>
+                    <p className="text-xs text-slate-400 leading-relaxed font-sans font-medium">
+                      Signal AI parses your raw codebase in real time, building an Abstract Syntax Tree to chart recursive pathways and detect loop bottlenecks.
+                    </p>
+                  </div>
+
+                  {/* Interactive parsed tree hologram widget */}
+                  <div className="h-28 w-full bg-slate-950/80 rounded-lg border border-white/5 relative p-3 overflow-hidden font-mono text-[9px] text-slate-500">
+                    <div className="space-y-1 select-none pointer-events-none relative z-10 text-left">
+                      <div className="flex items-center justify-between text-[7px] border-b border-white/5 pb-1 mb-2 text-cyan-400 font-bold uppercase">
+                        <span>AST_INGESTION.LOG</span>
+                        <span className="animate-pulse">PARSING...</span>
+                      </div>
+                      <div className="text-cyan-400/80 font-bold">&gt; const ast = parser.parse(source);</div>
+                      <div className="text-slate-600 pl-2">├── [Program]</div>
+                      <div className="text-slate-600 pl-4 flex items-center space-x-1">
+                        <span>├── [FunctionDeclaration]</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                      </div>
+                      <div className="text-slate-600 pl-6 text-[8px] text-purple-400/60 font-semibold">└── complexity: O(N²) DETECTED</div>
+                      <div className="text-slate-700 pl-6">└── [BinaryExpression]</div>
+                    </div>
+                    <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" />
+                  </div>
+
+                  {/* Telemetry bottom bar */}
+                  <div className="flex items-center justify-between border-t border-white/5 pt-3.5 text-[8px] font-mono text-slate-500 select-none">
+                    <span>PARSER STATUS</span>
+                    <span className="text-cyan-400 flex items-center space-x-1 font-bold">
+                      <span className="w-1 h-1 rounded-full bg-cyan-400 animate-pulse" />
+                      <span>AST READY</span>
+                    </span>
+                  </div>
+                </div>
+              </FloatingGlassCard>
+            </motion.div>
+
+            {/* Step 2: Build */}
+            <motion.div 
+              variants={itemVariants}
+              className="w-full flex"
+              onMouseEnter={() => setHoveredStep(2)}
+              onMouseLeave={() => setHoveredStep(null)}
+            >
+              <FloatingGlassCard
+                glowColor="purple"
+                yOffset={[0, 5, 0]}
+                xOffset={[0, -1, 0]}
+                rotateOffset={[0, -0.4, 0]}
+                duration={6.8}
+                delay={0.3}
+                className={`w-full transition-all duration-300 ${hoveredStep === 2 ? 'border-purple-500/30 shadow-[0_15px_45px_rgba(168,85,247,0.18)]' : ''}`}
+              >
+                <div className="flex flex-col space-y-6">
+                  {/* Top Row */}
+                  <div className="flex items-center justify-between select-none">
+                    <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shadow-[0_0_10px_rgba(168,85,247,0.15)]">
+                      <TermIcon size={18} className="text-purple-400" />
+                    </div>
+                    <span className="font-mono text-[9px] font-bold text-purple-400 bg-purple-500/10 px-2.5 py-0.8 rounded-full uppercase tracking-wider">
+                      Step 02 // BUILD
+                    </span>
+                  </div>
+
+                  {/* Title and Descriptions */}
+                  <div className="space-y-2 text-left select-none">
+                    <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-white font-display">
+                      Cognitive Refactor
+                    </h3>
+                    <p className="text-[10px] font-mono text-purple-400 uppercase tracking-widest leading-none font-semibold">
+                      Subagent Optimization
+                    </p>
+                    <p className="text-xs text-slate-400 leading-relaxed font-sans font-medium">
+                      Our autonomous AI subagents execute safe, parallel logic refactorings inside local AST branches, transforming quadratic runtimes to linear models.
+                    </p>
+                  </div>
+
+                  {/* Side-by-side refactoring diff widget */}
+                  <div className="h-28 w-full bg-slate-950/80 rounded-lg border border-white/5 relative p-3 overflow-hidden font-mono text-[8px] text-slate-500">
+                    <div className="flex items-center justify-between text-[7px] border-b border-white/5 pb-1 mb-2 text-purple-400 font-bold uppercase">
+                      <span>SUBTREE_OPTIMIZER.SYS</span>
+                      <span className="text-emerald-400 animate-pulse">REFACTORED</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2 h-full select-none pointer-events-none text-left">
+                      <div className="border border-red-500/10 bg-red-500/3 rounded p-1.5 relative overflow-hidden">
+                        <div className="absolute top-1 right-1 text-[5px] font-bold text-red-500/60 uppercase">O(N²) Loop</div>
+                        <div className="text-red-400/80 font-semibold mb-0.5">find_duplicates:</div>
+                        <div className="text-slate-600 pl-1">for i in list:</div>
+                        <div className="text-slate-600 pl-2">for j in list:</div>
+                        <div className="text-red-500/50 line-through pl-3">if i == j:</div>
+                        <div className="absolute inset-0 bg-radial-[circle,rgba(239,68,68,0.05)_0%,transparent_100%]" />
+                      </div>
+                      <div className="border border-emerald-500/10 bg-emerald-500/3 rounded p-1.5 relative overflow-hidden">
+                        <div className="absolute top-1 right-1 text-[5px] font-bold text-emerald-500/60 uppercase">O(N) Hash</div>
+                        <div className="text-emerald-400/80 font-semibold mb-0.5">dup_fast:</div>
+                        <div className="text-emerald-500/70 pl-1">seen = set()</div>
+                        <div className="text-emerald-500/70 pl-1">for i in list:</div>
+                        <div className="text-emerald-400 pl-2">if i in seen:</div>
+                        <div className="absolute inset-0 bg-radial-[circle,rgba(16,185,129,0.05)_0%,transparent_100%]" />
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" />
+                  </div>
+
+                  {/* Telemetry bottom bar */}
+                  <div className="flex items-center justify-between border-t border-white/5 pt-3.5 text-[8px] font-mono text-slate-500 select-none">
+                    <span>OPTIMIZATION SYNC</span>
+                    <span className="text-purple-400 flex items-center space-x-1 font-bold">
+                      <span className="w-1.5 h-1.5 rounded bg-purple-500/20 border border-purple-500/40 text-[6px] flex items-center justify-center font-bold px-0.5">L2</span>
+                      <span>SYNC ACTIVE</span>
+                    </span>
+                  </div>
+                </div>
+              </FloatingGlassCard>
+            </motion.div>
+
+            {/* Step 3: Deploy */}
+            <motion.div 
+              variants={itemVariants}
+              className="w-full flex"
+              onMouseEnter={() => setHoveredStep(3)}
+              onMouseLeave={() => setHoveredStep(null)}
+            >
+              <FloatingGlassCard
+                glowColor="emerald"
+                yOffset={[0, -5, 0]}
+                xOffset={[0, 1, 0]}
+                rotateOffset={[0, 0.4, 0]}
+                duration={6.2}
+                delay={0.6}
+                className={`w-full transition-all duration-300 ${hoveredStep === 3 ? 'border-emerald-500/30 shadow-[0_15px_45px_rgba(16,185,129,0.18)]' : ''}`}
+              >
+                <div className="flex flex-col space-y-6">
+                  {/* Top Row */}
+                  <div className="flex items-center justify-between select-none">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shadow-[0_0_10px_rgba(16,185,129,0.15)]">
+                      <Zap size={18} className="text-emerald-400" />
+                    </div>
+                    <span className="font-mono text-[9px] font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.8 rounded-full uppercase tracking-wider">
+                      Step 03 // DEPLOY
+                    </span>
+                  </div>
+
+                  {/* Title and Descriptions */}
+                  <div className="space-y-2 text-left select-none">
+                    <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-white font-display">
+                      WASM Targeting
+                    </h3>
+                    <p className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest leading-none font-semibold">
+                      Sub-Millisecond Deploy
+                    </p>
+                    <p className="text-xs text-slate-400 leading-relaxed font-sans font-medium">
+                      Compiles optimized subtrees instantly to target WebAssembly binaries, enabling hyper-secure, blazing fast execution sandboxes in the cloud.
+                    </p>
+                  </div>
+
+                  {/* Hexagon rotating compiler core hologram */}
+                  <div className="h-28 w-full bg-slate-950/80 rounded-lg border border-white/5 relative p-3 overflow-hidden font-mono text-[9px] text-slate-500">
+                    <div className="flex items-center justify-between text-[7px] border-b border-white/5 pb-1 mb-2 text-emerald-400 font-bold uppercase">
+                      <span>WASM_JIT_COMPILER.IO</span>
+                      <span className="text-cyan-400 animate-pulse">DEPLOYED</span>
+                    </div>
+                    <div className="flex items-center justify-between h-14 select-none pointer-events-none relative z-10 px-2 text-left">
+                      <div className="relative flex items-center justify-center w-10 h-10">
+                        <motion.svg 
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                          className="w-10 h-10 text-emerald-400/30" 
+                          viewBox="0 0 32 32"
+                        >
+                          <path d="M16 2 L28 9 L28 23 L16 30 L4 23 L4 9 Z" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="3, 3" />
+                        </motion.svg>
+                        <div className="absolute text-[8px] font-bold text-emerald-300">WASM</div>
+                      </div>
+                      <div className="text-[7.5px] text-slate-500 space-y-0.5 text-right font-mono">
+                        <p className="text-emerald-400 font-bold font-mono">✓ CHECKSUM: PASS</p>
+                        <p>SIZE: 12.4 KB</p>
+                        <p className="text-cyan-400 font-bold font-mono">LATENCY: 12ms</p>
+                        <p>SANDBOX: ACTIVE</p>
+                      </div>
+                    </div>
+                    <motion.div 
+                      animate={{ top: ['0%', '100%', '0%'] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                      className="absolute left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent pointer-events-none"
+                    />
+                    <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" />
+                  </div>
+
+                  {/* Telemetry bottom bar */}
+                  <div className="flex items-center justify-between border-t border-white/5 pt-3.5 text-[8px] font-mono text-slate-500 select-none">
+                    <span>DEPLOYED TARGET</span>
+                    <span className="text-emerald-400 flex items-center space-x-1 font-bold">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <span>COMPILATION OK</span>
+                    </span>
+                  </div>
+                </div>
+              </FloatingGlassCard>
+            </motion.div>
+
+          </motion.div>
+        </div>
+
+      </section>
+
+      {/* Laser scanline divider below workflow section */}
+      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent relative z-20" />
+
+      {/* Futuristic Tech Stack Section */}
+      <section id="tech" className="py-28 md:py-40 relative w-full overflow-hidden z-20 border-t border-b border-white/[0.02]">
+        
+        {/* Atmospheric Cosmic Backdrop Glows */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[60%] h-[40%] rounded-full bg-cyan-950/10 opacity-40 filter blur-[140px] pointer-events-none z-0 animate-pulse-slow" />
+        <div className="absolute bottom-10 right-10 w-[30%] h-[30%] rounded-full bg-purple-950/10 opacity-30 filter blur-[120px] pointer-events-none z-0 animate-pulse-slow" style={{ animationDelay: '-5s' }} />
+        
+        {/* Background Grid Pattern inside the section */}
+        <div className="absolute inset-0 bg-grid opacity-5 pointer-events-none" />
+
+        {/* Section Heading */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="max-w-3xl mx-auto text-center mb-16 px-6 relative z-10"
+        >
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass border-cyan-500/10 shadow-[0_0_15px_rgba(6,182,212,0.05)] mb-4">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-400"></span>
+            </span>
+            <span className="font-mono text-[8px] sm:text-[9px] tracking-[0.22em] uppercase text-cyan-400 font-bold">
+              DEVELOPER ECOSYSTEM // SYNAPSES
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-white font-display leading-[1.15] mb-4">
+            Futuristic <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-[#4F7CFF] to-purple-400 text-glow font-bold">
+              Tech Stack
+            </span>
+          </h2>
+          <p className="max-w-xl mx-auto text-xs sm:text-sm text-slate-400 leading-relaxed font-sans font-medium">
+            Signal AI integrates seamlessly with the industry’s most powerful platforms, compiling and restructuring complex code patterns dynamically in real time.
+          </p>
+        </motion.div>
+
+        {/* Outer container */}
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          
+          {/* MOBILE ONLY REFLOW LIST */}
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden"
+          >
+            {techStack.map((tech) => {
+              const IconComp = tech.icon;
+              return (
+                <motion.div 
+                  variants={itemVariants}
+                  key={tech.id}
+                  className="relative p-5 rounded-2xl glass border-white/5 bg-slate-950/40 text-left overflow-hidden group transition-all duration-300 hover:border-cyan-500/20 shadow-lg"
+                >
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-cyan-500/5 to-transparent filter blur-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                  
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 group-hover:text-cyan-400 transition-colors shadow-inner">
+                      <IconComp className="w-6 h-6" />
+                    </div>
+                    <div className="flex-1 space-y-1">
+                      <div className="flex items-center justify-between">
+                        <h4 className="font-bold text-white tracking-wide uppercase text-sm sm:text-base">
+                          {tech.name}
+                        </h4>
+                        <span className={`text-[8px] font-mono font-bold px-2 py-0.5 rounded-full ${tech.badgeColor} border border-white/5 uppercase tracking-wider`}>
+                          Active
+                        </span>
+                      </div>
+                      <p className="font-mono text-[9px] text-slate-500 font-medium">
+                        {tech.stats}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-xs text-slate-400 mt-4 leading-relaxed font-sans font-medium">
+                    {tech.description}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+
+          {/* DESKTOP SPATIAL ORBITAL MAP */}
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="hidden md:block relative w-full h-[540px] select-none"
+          >
+            
+            {/* Background SVG Grid and Connections */}
+            <svg 
+              className="absolute inset-0 w-full h-full pointer-events-none z-0" 
+              viewBox="0 0 1000 480" 
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <defs>
+                {techStack.map((tech) => (
+                  <linearGradient 
+                    key={`gradient-${tech.id}`} 
+                    id={`grad-${tech.id}`} 
+                    x1="0%" y1="0%" x2="100%" y2="100%"
+                  >
+                    <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#a855f7" stopOpacity="0.8" />
+                  </linearGradient>
+                ))}
+                
+                {/* Glow Filter */}
+                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="6" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+              </defs>
+
+              {/* Orbital Rings / Tracks (Ellipses matching card layout) */}
+              <ellipse 
+                cx="500" cy="240" rx="380" ry="180" 
+                fill="none" 
+                stroke="rgba(255,255,255,0.03)" 
+                strokeWidth="1.5" 
+                strokeDasharray="4, 12"
+              />
+              <ellipse 
+                cx="500" cy="240" rx="270" ry="120" 
+                fill="none" 
+                stroke="rgba(255,255,255,0.02)" 
+                strokeWidth="1.5" 
+                strokeDasharray="3, 8"
+              />
+              <ellipse 
+                cx="500" cy="240" rx="120" ry="70" 
+                fill="none" 
+                stroke="rgba(6,182,212,0.05)" 
+                strokeWidth="1" 
+                strokeDasharray="2, 6"
+              />
+
+              {/* Laser scanning rings radiating outwards */}
+              <motion.ellipse
+                cx="500" cy="240"
+                initial={{ rx: 30, ry: 15, opacity: 0 }}
+                animate={{ rx: [30, 480], ry: [15, 220], opacity: [0, 0.2, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeOut" }}
+                fill="none"
+                stroke="rgba(6,182,212,0.2)"
+                strokeWidth="1"
+              />
+
+              {/* Reactive Connected Neural Paths from core (500,240) to cards */}
+              {techStack.map((tech) => {
+                const isActive = hoveredTech === tech.id;
+                
+                return (
+                  <g key={`path-group-${tech.id}`}>
+                    {/* Underlying glow path */}
+                    <path
+                      d={`M 500 240 Q 500 ${tech.pos.y} ${tech.pos.x} ${tech.pos.y}`}
+                      fill="none"
+                      stroke={isActive ? `url(#grad-${tech.id})` : "rgba(255,255,255,0.04)"}
+                      strokeWidth={isActive ? "2.5" : "1.2"}
+                      className="transition-all duration-500"
+                      filter={isActive ? "url(#glow)" : ""}
+                    />
+                    
+                    {/* Glowing Spark Packets running on the path */}
+                    <path
+                      d={`M 500 240 Q 500 ${tech.pos.y} ${tech.pos.x} ${tech.pos.y}`}
+                      fill="none"
+                      stroke={isActive ? "#38bdf8" : "rgba(255,255,255,0.15)"}
+                      strokeWidth={isActive ? "3" : "1.5"}
+                      strokeLinecap="round"
+                      strokeDasharray="8, 92"
+                      style={{ filter: "drop-shadow(0 0 5px rgba(56, 189, 248, 0.8))" }}
+                    >
+                      <animate
+                        attributeName="stroke-dashoffset"
+                        values="100;0"
+                        dur={isActive ? "1.5s" : "4.5s"}
+                        repeatCount="indefinite"
+                      />
+                    </path>
+                  </g>
+                );
+              })}
+            </svg>
+
+            {/* Central Compiler Reactor holographic console */}
+            <motion.div 
+              variants={itemVariants}
+              className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-80 h-80 z-20 flex items-center justify-center"
+            >
+              
+              {/* Rotating outer neon border loops */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 rounded-full border border-dashed border-cyan-500/10 pointer-events-none"
+              />
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-2 rounded-full border border-double border-purple-500/5 pointer-events-none"
+              />
+
+              {/* Reactor center glow halo */}
+              <div className={`absolute w-44 h-44 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 filter blur-xl transition-all duration-500 ${hoveredTech ? 'scale-125 opacity-70' : 'opacity-40'}`} />
+
+              {/* Actual Holographic Glass Terminal Core */}
+              <div className={`relative w-[210px] h-[210px] rounded-3xl glass border-white/5 bg-slate-950/90 shadow-[0_0_50px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col p-4 text-left font-mono transition-all duration-500 ${hoveredTech ? 'border-cyan-500/20 shadow-[0_0_35px_rgba(6,182,212,0.15)] scale-105' : ''}`}>
+                
+                {/* Micro Scanlines */}
+                <div className="absolute inset-0 scanline-glow opacity-30 pointer-events-none z-10" />
+
+                {/* Console header */}
+                <div className="flex items-center justify-between text-[7px] border-b border-white/5 pb-1.5 mb-2 font-bold text-slate-500 uppercase">
+                  <span>COMPILER_CORE // JIT</span>
+                  <span className={`flex items-center space-x-1 transition-colors duration-300 ${hoveredTech ? 'text-cyan-400' : 'text-slate-500 animate-pulse'}`}>
+                    <span className={`w-1.5 h-1.5 rounded-full ${hoveredTech ? 'bg-cyan-400 animate-ping' : 'bg-slate-500'}`} />
+                    <span>{hoveredTech ? 'CONNECTED' : 'IDLE'}</span>
+                  </span>
+                </div>
+
+                {/* Console Main Details Frame */}
+                {hoveredTech ? (() => {
+                  const activeTech = techStack.find(t => t.id === hoveredTech);
+                  return (
+                    <div className="flex-1 flex flex-col justify-between text-[9px] relative z-10">
+                      <div className="space-y-1.5">
+                        <div className="flex items-center space-x-1.5">
+                          <span className="text-cyan-400 font-bold">&gt;</span>
+                          <span className="text-white font-bold text-[10px] tracking-wide uppercase">{activeTech.name}</span>
+                        </div>
+                        <div className="text-[7.5px] text-slate-400 font-medium space-y-0.5">
+                          <p className="text-cyan-400/90 font-bold">{activeTech.stats}</p>
+                          <p className="text-purple-400/90 font-semibold">{activeTech.status}</p>
+                          <p className="text-[7px] text-slate-500 font-mono">
+                            JIT_MEM: 0x7FFA{Math.floor(Date.now() / 2000) % 9999 + 1000} // L2_CACHE
+                          </p>
+                        </div>
+                      </div>
+                      
+                      {/* Live compilation log simulation */}
+                      <p className="text-[8px] text-slate-400 leading-relaxed font-sans font-medium line-clamp-3 border-t border-white/5 pt-2">
+                        {activeTech.description}
+                      </p>
+                    </div>
+                  );
+                })() : (
+                  <div className="flex-1 flex flex-col justify-between text-[9px] relative z-10">
+                    <div className="space-y-1.5">
+                      <div className="flex items-center space-x-1.5">
+                        <span className="text-slate-500">&gt;</span>
+                        <span className="text-slate-400 font-bold tracking-wide uppercase">SIGNAL SYSTEM</span>
+                      </div>
+                      <div className="text-[7.5px] text-slate-500 space-y-0.5 font-mono">
+                        <p>CORES: 8/8 STATE_OK</p>
+                        <p>STAGE: OPTIMIZER_L2</p>
+                        <p className="animate-pulse text-cyan-400/50">WAITING FOR HANDSHAKE...</p>
+                      </div>
+                    </div>
+
+                    <p className="text-[8px] text-slate-500 leading-relaxed font-sans font-semibold border-t border-white/5 pt-2">
+                      Hover over any orbital developer module to connect compiler synapses and stream real-time compilation metrics.
+                    </p>
+                  </div>
+                )}
+                
+                {/* Laser scanline overlay */}
+                <motion.div 
+                  animate={{ top: ['0%', '100%', '0%'] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                  className="absolute left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent pointer-events-none z-10"
+                />
+              </div>
+            </motion.div>
+
+            {/* Orbiting Tech Cards */}
+            {techStack.map((tech) => {
+              const IconComp = tech.icon;
+              const isActive = hoveredTech === tech.id;
+              
+              return (
+                <motion.div
+                  key={tech.id}
+                  variants={itemVariants}
+                  style={{
+                    position: 'absolute',
+                    left: tech.pos.left,
+                    top: tech.pos.top,
+                    transform: 'translate(-50%, -50%)',
+                  }}
+                  className="z-30"
+                >
+                  <motion.div
+                    onMouseEnter={() => setHoveredTech(tech.id)}
+                    onMouseLeave={() => setHoveredTech(null)}
+                    animate={{
+                      y: tech.floatOffset,
+                      x: [0, tech.floatOffset[1]/2, 0],
+                    }}
+                    transition={{
+                      y: {
+                        duration: tech.floatDuration,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: tech.floatDelay,
+                      },
+                      x: {
+                        duration: tech.floatDuration * 1.2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: tech.floatDelay,
+                      }
+                    }}
+                    className="cursor-pointer group"
+                  >
+                    <div className={`relative px-5 py-4 w-48 rounded-2xl glass bg-slate-950/80 border-white/5 transition-all duration-500 text-left ${isActive ? 'border-cyan-400/40 shadow-[0_0_25px_rgba(6,182,212,0.12)] scale-105 -translate-y-2' : 'hover:-translate-y-1'}`}>
+                      
+                      {/* Holographic corner accents */}
+                      <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t border-l border-white/10 group-hover:border-cyan-400/30 transition-colors rounded-tl-md" />
+                      <div className="absolute top-0 right-0 w-2.5 h-2.5 border-t border-r border-white/10 group-hover:border-cyan-400/30 transition-colors rounded-tr-md" />
+                      <div className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b border-l border-white/10 group-hover:border-cyan-400/30 transition-colors rounded-bl-md" />
+                      <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b border-r border-white/10 group-hover:border-cyan-400/30 transition-colors rounded-br-md" />
+                      
+                      {/* Glowing highlight sphere inside the card */}
+                      <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${tech.glowColor} filter blur-xl opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-full pointer-events-none`} />
+
+                      {/* Logo & Name */}
+                      <div className="flex items-center space-x-3.5">
+                        <div className={`p-2.5 rounded-xl bg-white/5 border border-white/10 transition-all duration-500 group-hover:bg-cyan-500/5 group-hover:border-cyan-500/20 text-slate-400 ${isActive ? 'text-cyan-400' : 'group-hover:text-cyan-400'}`}>
+                          <IconComp className="w-5.5 h-5.5" />
+                        </div>
+                        <div className="space-y-0.5">
+                          <h4 className="font-bold text-white tracking-wide uppercase text-xs">
+                            {tech.name}
+                          </h4>
+                          <span className={`text-[7px] font-mono font-bold px-1.5 py-0.2 bg-white/5 text-slate-500 uppercase tracking-widest rounded-full ${isActive ? 'text-cyan-400/80 bg-cyan-400/5' : ''} transition-colors duration-300`}>
+                            STABLE
+                          </span>
+                        </div>
+                      </div>
+                      
+                      {/* Miniature stats telemetry under logo */}
+                      <div className="mt-3.5 pt-3 border-t border-white/5 flex items-center justify-between text-[7px] font-mono text-slate-500 select-none">
+                        <span>MODULE OK</span>
+                        <span className={`transition-colors duration-300 ${isActive ? 'text-cyan-400 font-bold' : ''}`}>
+                          {isActive ? 'STREAMING' : 'IDLE'}
+                        </span>
+                      </div>
+
+                    </div>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
+
+          </motion.div>
+
+        </div>
+
+      </section>
+
+      {/* Laser scanline divider below tech stack section */}
+      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent relative z-20" />
+
+      {/* Premium Features Section */}
+      <section id="features" className="py-28 md:py-40 relative w-full overflow-hidden z-20">
+        {/* Atmospheric Backlight Spots */}
+        <div className="absolute top-1/3 left-1/4 w-[40%] h-[30%] rounded-full bg-cyan-950/10 opacity-30 filter blur-[120px] pointer-events-none z-0 animate-pulse-slow" />
+        <div className="absolute bottom-1/3 right-1/4 w-[40%] h-[30%] rounded-full bg-purple-950/10 opacity-30 filter blur-[120px] pointer-events-none z-0 animate-pulse-slow" style={{ animationDelay: '-4s' }} />
+
+        {/* Section Heading */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="max-w-3xl mx-auto text-center mb-24 px-6 relative z-10"
+        >
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass border-cyan-500/10 shadow-[0_0_15px_rgba(6,182,212,0.05)] mb-4">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-400"></span>
+            </span>
+            <span className="font-mono text-[8px] sm:text-[9px] tracking-[0.22em] uppercase text-cyan-400 font-bold">
+              System Architecture // Advanced Utilities
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-white font-display leading-[1.15] mb-4">
+            EXPLOIT THE FULL <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-[#4F7CFF] to-purple-400 text-glow font-bold">
+              COMPILER EDGE
+            </span>
+          </h2>
+          <p className="max-w-xl mx-auto text-xs sm:text-sm text-slate-400 leading-relaxed font-sans font-medium">
+            Deploy cognitive multi-agent modules engineered to parse, scan, refactor, and supercharge your production stack.
+          </p>
+        </motion.div>
+
+        {/* Features 2x2 Grid */}
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10"
+          >
+            
+            {/* Feature 1: Real-time Cognitive Diagnostics */}
+            <motion.div 
+              variants={itemVariants}
+              onMouseEnter={() => setHoveredFeature(1)}
+              onMouseLeave={() => setHoveredFeature(null)}
+              className="w-full flex"
+            >
+              <FloatingGlassCard
+                glowColor="cyan"
+                yOffset={[0, -4, 0]}
+                xOffset={[0, 0.5, 0]}
+                rotateOffset={[0, 0.2, 0]}
+                duration={7}
+                delay={0}
+                className={`w-full h-full transition-all duration-300 ${hoveredFeature === 1 ? 'border-cyan-500/30 shadow-[0_15px_40px_rgba(6,182,212,0.12)]' : ''}`}
+              >
+                <div className="flex flex-col h-full space-y-6 text-left">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shadow-[0_0_10px_rgba(6,182,212,0.15)]">
+                      <Activity size={18} className="text-cyan-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white font-display uppercase tracking-wide">Cognitive Diagnostics</h3>
+                      <p className="text-[9px] font-mono text-cyan-400/80 uppercase tracking-widest font-semibold">Continuous AST Scanning</p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-xs text-slate-400 leading-relaxed font-medium">
+                    Continuous monitoring parses code block complexity, detecting potential recursion limits, structural bottlenecks, and memory leaks before execution.
+                  </p>
+
+                  {/* 6x6 Scanning Memory Cell Grid */}
+                  <div className="h-32 w-full bg-slate-950/80 rounded-lg border border-white/5 relative p-3 overflow-hidden font-mono text-[9px]">
+                    <div className="flex items-center justify-between text-[7px] border-b border-white/5 pb-1 mb-2 text-cyan-400 font-bold uppercase select-none">
+                      <span>L3_CACHE_SCANNER.SYS</span>
+                      <span className="animate-pulse">SCANNING ACTIVE</span>
+                    </div>
+                    
+                    <div className="grid grid-cols-6 gap-1.5 h-16 w-full max-w-[200px] mx-auto select-none pointer-events-none mt-1">
+                      {Array.from({ length: 18 }).map((_, idx) => {
+                        // Alternate states for visual complexity
+                        const isGlowing = idx % 5 === 0;
+                        const isWarning = idx === 13;
+                        return (
+                          <motion.div 
+                            key={idx}
+                            animate={isGlowing ? { opacity: [0.3, 1, 0.3] } : {}}
+                            transition={{ duration: 1.5 + (idx % 2), repeat: Infinity, ease: "easeInOut" }}
+                            className={`rounded-sm border ${
+                              isWarning 
+                                ? 'bg-rose-500/20 border-rose-500/40' 
+                                : isGlowing 
+                                  ? 'bg-cyan-500/30 border-cyan-400/50 shadow-[0_0_6px_rgba(34,211,238,0.3)]' 
+                                  : 'bg-slate-900 border-white/5'
+                            }`}
+                          />
+                        );
+                      })}
+                    </div>
+                    
+                    <div className="absolute bottom-2 left-3 right-3 flex items-center justify-between text-[7px] text-slate-500 select-none">
+                      <span>MEM_HEAP: STABLE</span>
+                      <span className="text-cyan-400 font-bold">HEAP_OK // 0.08ms</span>
+                    </div>
+                    <div className="absolute inset-0 bg-grid opacity-5 pointer-events-none" />
+                  </div>
+                </div>
+              </FloatingGlassCard>
+            </motion.div>
+
+            {/* Feature 2: Multi-Agent Parallel Orchestration */}
+            <motion.div 
+              variants={itemVariants}
+              onMouseEnter={() => setHoveredFeature(2)}
+              onMouseLeave={() => setHoveredFeature(null)}
+              className="w-full flex"
+            >
+              <FloatingGlassCard
+                glowColor="purple"
+                yOffset={[0, 4, 0]}
+                xOffset={[0, -0.5, 0]}
+                rotateOffset={[0, -0.2, 0]}
+                duration={8}
+                delay={0.2}
+                className={`w-full h-full transition-all duration-300 ${hoveredFeature === 2 ? 'border-purple-500/30 shadow-[0_15px_40px_rgba(168,85,247,0.12)]' : ''}`}
+              >
+                <div className="flex flex-col h-full space-y-6 text-left">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shadow-[0_0_10px_rgba(168,85,247,0.15)]">
+                      <Network size={18} className="text-purple-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white font-display uppercase tracking-wide">Multi-Agent Network</h3>
+                      <p className="text-[9px] font-mono text-purple-400/80 uppercase tracking-widest font-semibold">Staggered subtree refactors</p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-xs text-slate-400 leading-relaxed font-medium">
+                    Orchestrate multiple specialized micro-agents to run parallel refactorizations across disparate modules without locking resources.
+                  </p>
+
+                  {/* SVG Nodes diagram */}
+                  <div className="h-32 w-full bg-slate-950/80 rounded-lg border border-white/5 relative p-3 overflow-hidden">
+                    <div className="flex items-center justify-between text-[7px] font-mono border-b border-white/5 pb-1 mb-1 text-purple-400 font-bold uppercase select-none">
+                      <span>AGENT_CLUSTER_MAP.NET</span>
+                      <span className="text-emerald-400 font-bold animate-pulse">4 NODES SYNCED</span>
+                    </div>
+
+                    <div className="h-20 w-full relative flex items-center justify-center select-none pointer-events-none">
+                      <svg className="w-24 h-20 overflow-visible" viewBox="0 0 100 80">
+                        {/* Lines */}
+                        <path d="M 50 40 L 20 20 M 50 40 L 80 20 M 50 40 L 20 60 M 50 40 L 80 60" fill="none" stroke="rgba(168, 85, 247, 0.2)" strokeWidth="0.8" />
+                        
+                        {/* Moving particles */}
+                        <circle cx="50" cy="40" r="1.5" fill="#A855F7" style={{ display: hoveredFeature === 2 ? 'block' : 'none' }}>
+                          <animateMotion dur="1.2s" repeatCount="indefinite" path="M 50 40 L 20 20" />
+                        </circle>
+                        <circle cx="50" cy="40" r="1.5" fill="#A855F7" style={{ display: hoveredFeature === 2 ? 'block' : 'none' }}>
+                          <animateMotion dur="1s" repeatCount="indefinite" path="M 50 40 L 80 20" />
+                        </circle>
+                        <circle cx="50" cy="40" r="1.5" fill="#A855F7" style={{ display: hoveredFeature === 2 ? 'block' : 'none' }}>
+                          <animateMotion dur="1.5s" repeatCount="indefinite" path="M 50 40 L 20 60" />
+                        </circle>
+                        <circle cx="50" cy="40" r="1.5" fill="#A855F7" style={{ display: hoveredFeature === 2 ? 'block' : 'none' }}>
+                          <animateMotion dur="1.3s" repeatCount="indefinite" path="M 50 40 L 80 60" />
+                        </circle>
+
+                        {/* Central Hub */}
+                        <circle cx="50" cy="40" r="5.5" fill="#010106" stroke="#A855F7" strokeWidth="1.5" className="animate-pulse" />
+                        
+                        {/* Satellite Nodes */}
+                        <circle cx="20" cy="20" r="3.5" fill="#010106" stroke="#22D3EE" strokeWidth="1" />
+                        <circle cx="80" cy="20" r="3.5" fill="#010106" stroke="#10B981" strokeWidth="1" />
+                        <circle cx="20" cy="60" r="3.5" fill="#010106" stroke="#22D3EE" strokeWidth="1" />
+                        <circle cx="80" cy="60" r="3.5" fill="#010106" stroke="#10B981" strokeWidth="1" />
+                      </svg>
+                    </div>
+
+                    <div className="absolute inset-0 bg-grid opacity-5 pointer-events-none" />
+                  </div>
+                </div>
+              </FloatingGlassCard>
+            </motion.div>
+
+            {/* Feature 3: WASM Direct-JIT Compiling */}
+            <motion.div 
+              variants={itemVariants}
+              onMouseEnter={() => setHoveredFeature(3)}
+              onMouseLeave={() => setHoveredFeature(null)}
+              className="w-full flex"
+            >
+              <FloatingGlassCard
+                glowColor="emerald"
+                yOffset={[0, -4, 0]}
+                xOffset={[0, 0.5, 0]}
+                rotateOffset={[0, 0.2, 0]}
+                duration={7.5}
+                delay={0.1}
+                className={`w-full h-full transition-all duration-300 ${hoveredFeature === 3 ? 'border-emerald-500/30 shadow-[0_15px_40px_rgba(16,185,129,0.12)]' : ''}`}
+              >
+                <div className="flex flex-col h-full space-y-6 text-left">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shadow-[0_0_10px_rgba(16,185,129,0.15)]">
+                      <Layers size={18} className="text-emerald-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white font-display uppercase tracking-wide">WASM Targeting JIT</h3>
+                      <p className="text-[9px] font-mono text-emerald-400/80 uppercase tracking-widest font-semibold">Sub-millisecond binary deploys</p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-xs text-slate-400 leading-relaxed font-medium">
+                    Compile optimized Abstract Syntax Trees straight into highly secure, sandboxed WebAssembly binaries for instant serverless execution.
+                  </p>
+
+                  {/* Typing logs widget */}
+                  <div className="h-32 w-full bg-slate-950/80 rounded-lg border border-white/5 relative p-3 overflow-hidden font-mono text-[8px] text-slate-400">
+                    <div className="flex items-center justify-between text-[7px] border-b border-white/5 pb-1 mb-2 text-emerald-400 font-bold uppercase select-none">
+                      <span>WASM_JIT_STDOUT.LOG</span>
+                      <span className="text-cyan-400 font-bold animate-pulse">COMPILATION SUCCESS</span>
+                    </div>
+
+                    <div className="space-y-1 text-left select-none pointer-events-none">
+                      <div className="text-slate-500">&gt; signal compiler --target=wasm</div>
+                      <div className="text-cyan-400/80">&gt; Analyzing local code trees... OK</div>
+                      <div className="text-purple-400/80">&gt; Building WASM byte arrays... OK [12.4 KB]</div>
+                      <div className="text-emerald-400 flex items-center space-x-1">
+                        <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
+                        <span>✓ WASM binary loaded successfully (11.2ms)</span>
+                      </div>
+                    </div>
+
+                    <div className="absolute inset-0 bg-grid opacity-5 pointer-events-none" />
+                  </div>
+                </div>
+              </FloatingGlassCard>
+            </motion.div>
+
+            {/* Feature 4: Intelligent Database Refactoring */}
+            <motion.div 
+              variants={itemVariants}
+              onMouseEnter={() => setHoveredFeature(4)}
+              onMouseLeave={() => setHoveredFeature(null)}
+              className="w-full flex"
+            >
+              <FloatingGlassCard
+                glowColor="blue"
+                yOffset={[0, 4, 0]}
+                xOffset={[0, -0.5, 0]}
+                rotateOffset={[0, -0.2, 0]}
+                duration={8.5}
+                delay={0.3}
+                className={`w-full h-full transition-all duration-300 ${hoveredFeature === 4 ? 'border-[#4F7CFF]/30 shadow-[0_15px_40px_rgba(79,124,255,0.12)]' : ''}`}
+              >
+                <div className="flex flex-col h-full space-y-6 text-left">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shadow-[0_0_10px_rgba(79,124,255,0.15)]">
+                      <Database size={18} className="text-[#4F7CFF]" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white font-display uppercase tracking-wide">Database Optimizations</h3>
+                      <p className="text-[9px] font-mono text-[#4F7CFF] uppercase tracking-widest font-semibold">Schema Query Caching</p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-xs text-slate-400 leading-relaxed font-medium">
+                    Analyze relational structures and execution plans, auto-identifying query hazards, missing indices, and slow tables to patch instantly.
+                  </p>
+
+                  {/* Slow/Fast Query Comparison */}
+                  <div className="h-32 w-full bg-slate-950/80 rounded-lg border border-white/5 relative p-3 overflow-hidden font-mono text-[8px] text-slate-400">
+                    <div className="flex items-center justify-between text-[7px] border-b border-white/5 pb-1 mb-2 text-[#4F7CFF] font-bold uppercase select-none">
+                      <span>DB_EXECUTION_PROFILER.IO</span>
+                      <span className="text-cyan-400 font-bold uppercase">42x Speedup</span>
+                    </div>
+
+                    <div className="space-y-3.5 select-none pointer-events-none mt-1.5 text-left">
+                      <div className="space-y-1">
+                        <div className="flex justify-between text-[7px] text-slate-500 font-bold">
+                          <span>UNOPTIMIZED QUERY (SEQUENTIAL SCAN)</span>
+                          <span className="text-rose-400">420ms</span>
+                        </div>
+                        <div className="w-full h-2 bg-slate-900 rounded-full overflow-hidden border border-white/3">
+                          <motion.div 
+                            animate={{ width: hoveredFeature === 4 ? ['100%', '80%', '100%'] : '100%' }}
+                            transition={{ duration: 3, repeat: Infinity }}
+                            className="h-full bg-rose-500/60 rounded-full" 
+                          />
+                        </div>
+                      </div>
+
+                      <div className="space-y-1">
+                        <div className="flex justify-between text-[7px] text-slate-500 font-bold">
+                          <span>OPTIMIZED INDEX LOOKUP (REDIS CACHED)</span>
+                          <span className="text-emerald-400">10ms</span>
+                        </div>
+                        <div className="w-full h-2 bg-slate-900 rounded-full overflow-hidden border border-white/3">
+                          <motion.div 
+                            animate={{ width: hoveredFeature === 4 ? ['2.4%', '10%', '2.4%'] : '2.4%' }}
+                            transition={{ duration: 3, repeat: Infinity }}
+                            className="h-full bg-emerald-500/60 rounded-full" 
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="absolute inset-0 bg-grid opacity-5 pointer-events-none" />
+                  </div>
+                </div>
+              </FloatingGlassCard>
+            </motion.div>
+
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Laser scanline divider below features section */}
+      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent relative z-20" />
+
+      {/* Futuristic Pricing Plans Section */}
+      <section id="pricing" className="py-28 md:py-40 relative w-full overflow-visible z-20 bg-[#010106]/20">
+        
+        {/* Volumetric backdrop atmospheric light */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[60%] rounded-full bg-purple-950/5 opacity-30 filter blur-[150px] pointer-events-none z-0 animate-pulse-slow" style={{ animationDelay: '-2s' }} />
+ 
+        {/* Section Heading */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="max-w-3xl mx-auto text-center mb-16 px-6 relative z-10"
+        >
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass border-cyan-500/10 shadow-[0_0_15px_rgba(6,182,212,0.05)] mb-4">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-400"></span>
+            </span>
+            <span className="font-mono text-[8px] sm:text-[9px] tracking-[0.22em] uppercase text-cyan-400 font-bold">
+              Transparent Value // Scalable Compute
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-white font-display leading-[1.15] mb-4">
+            POWER ALIGNED TO <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-[#4F7CFF] to-purple-400 text-glow font-bold">
+              YOUR PIPELINE
+            </span>
+          </h2>
+          <p className="max-w-xl mx-auto text-xs sm:text-sm text-slate-400 leading-relaxed font-sans font-medium">
+            Select an execution threshold tailored for autonomous compiling sandboxes or enterprise scaling pipelines.
+          </p>
+        </motion.div>
+ 
+        {/* Billing Period Selector Toggle */}
+        <div className="flex items-center justify-center space-x-4 mb-20 relative z-10 select-none">
+          <span className={`text-[10px] font-mono tracking-widest transition-colors duration-300 font-bold ${!isYearly ? 'text-cyan-400' : 'text-slate-500'}`}>MONTHLY</span>
+          
+          <button 
+            onClick={() => setIsYearly(!isYearly)}
+            className="w-14 h-7 rounded-full bg-slate-950 border border-white/10 p-1 flex items-center relative transition-all duration-300 hover:border-cyan-500/30 cursor-pointer"
+          >
+            <motion.div 
+              animate={{ x: isYearly ? 26 : 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              className="w-4.5 h-4.5 rounded-full bg-cyan-400 shadow-[0_0_10px_#22D3EE]" 
+            />
+          </button>
+ 
+          <span className={`text-[10px] font-mono tracking-widest transition-colors duration-300 font-bold ${isYearly ? 'text-cyan-400' : 'text-slate-500'}`}>YEARLY</span>
+          
+          {/* Neon pill indicator */}
+          <span className="font-mono text-[8px] font-extrabold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/30 animate-pulse tracking-wide select-none">
+            +20% YEARLY SAVINGS
+          </span>
+        </div>
+ 
+        {/* Pricing Cards Grid */}
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch"
+          >
+            
+            {/* Plan 1: Starter */}
+            <motion.div variants={itemVariants} className="w-full flex">
+              <FloatingGlassCard
+                glowColor="cyan"
+                yOffset={[0, -3, 0]}
+                xOffset={[0, 0.4, 0]}
+                rotateOffset={[0, 0.1, 0]}
+                duration={6.5}
+                delay={0}
+                className="w-full flex flex-col justify-between border-white/5 hover:border-cyan-500/20"
+              >
+                <div className="flex flex-col space-y-6 text-left h-full justify-between">
+                  <div className="space-y-6">
+                    {/* Title Row */}
+                    <div className="flex items-center justify-between select-none">
+                      <span className="font-mono text-[9px] font-bold text-cyan-400 bg-cyan-500/10 px-2.5 py-0.8 rounded-full uppercase tracking-wider">
+                        Tier 01 // DEV
+                      </span>
+                      <TermIcon size={14} className="text-slate-500" />
+                    </div>
+                    
+                    <div className="space-y-1">
+                      <h3 className="text-2xl font-bold uppercase tracking-tight text-white font-display">Starter</h3>
+                      <p className="text-xs text-slate-400 font-medium">Explore autonomous compiler sandboxes.</p>
+                    </div>
+   
+                    {/* Pricing Display */}
+                    <div className="py-2.5 border-y border-white/5 flex items-baseline space-x-1">
+                      <span className="text-3xl font-bold font-display text-white tracking-tight">$0</span>
+                      <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-semibold">/ permanent</span>
+                    </div>
+   
+                    {/* Features List */}
+                    <ul className="space-y-3 text-xs text-slate-400 font-medium pt-2">
+                      {[
+                        "1 active subagent sandbox",
+                        "20 compilation runs / month",
+                        "Standard AST parsing (2.5s)",
+                        "Global CDN targeting WASM",
+                        "Standard discord community support"
+                      ].map((feature, idx) => (
+                        <li key={idx} className="flex items-start space-x-2.5">
+                          <Check size={12} className="text-cyan-400 mt-0.5 shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+   
+                  {/* CTA */}
+                  <button className="w-full py-3 mt-8 rounded-lg border border-white/10 hover:border-cyan-500/30 bg-white/3 hover:bg-cyan-500/5 text-slate-300 hover:text-cyan-300 font-mono text-[9px] font-bold tracking-widest uppercase transition-all select-none cursor-pointer">
+                    Access Starter Sandbox
+                  </button>
+                </div>
+              </FloatingGlassCard>
+            </motion.div>
+ 
+            {/* Plan 2: Pro - RECOMMENDED */}
+            <motion.div variants={itemVariants} className="relative group flex flex-col w-full">
+              {/* Pulsing glow surround for Pro card */}
+              <div className="absolute inset-0 -m-[1.5px] rounded-[17px] bg-gradient-to-b from-purple-500/30 via-[#4F7CFF]/20 to-cyan-500/30 blur-[2px] opacity-80 group-hover:opacity-100 transition-opacity pointer-events-none" />
+              
+              <FloatingGlassCard
+                glowColor="purple"
+                yOffset={[0, 4, 0]}
+                xOffset={[0, -0.4, 0]}
+                rotateOffset={[0, -0.1, 0]}
+                duration={7.2}
+                delay={0.2}
+                className="w-full h-full flex flex-col justify-between border-purple-500/20 bg-purple-950/3 hover:border-purple-400/40 relative overflow-hidden"
+              >
+                {/* Visual cursor sheen highlights */}
+                <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-purple-400 to-cyan-400 opacity-60 pointer-events-none" />
+                
+                <div className="flex flex-col space-y-6 text-left h-full justify-between relative z-10">
+                  <div className="space-y-6">
+                    {/* Title Row */}
+                    <div className="flex items-center justify-between select-none">
+                      <span className="font-mono text-[9px] font-extrabold text-purple-400 bg-purple-500/10 px-2.5 py-0.8 rounded-full uppercase tracking-wider border border-purple-500/20 shadow-[0_0_10px_rgba(168,85,247,0.2)]">
+                        Tier 02 // RECOMMENDED
+                      </span>
+                      <Zap size={14} className="text-purple-400 animate-pulse" />
+                    </div>
+                    
+                    <div className="space-y-1">
+                      <h3 className="text-2xl font-bold uppercase tracking-tight text-white font-display">Pro</h3>
+                      <p className="text-xs text-slate-400 font-medium">Power optimization across active projects.</p>
+                    </div>
+   
+                    {/* Pricing Display */}
+                    <div className="py-2.5 border-y border-white/5 flex items-baseline space-x-1 overflow-hidden">
+                      <div className="flex items-baseline space-x-0.5">
+                        <span className="text-3xl font-bold font-display text-white tracking-tight">$</span>
+                        <AnimatePresence mode="wait">
+                          <motion.span 
+                            key={isYearly ? 'yearly' : 'monthly'}
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: -20, opacity: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className="text-3xl font-bold font-display text-white tracking-tight"
+                          >
+                            {isYearly ? '15' : '19'}
+                          </motion.span>
+                        </AnimatePresence>
+                      </div>
+                      <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-semibold">
+                        / month {isYearly ? '(billed annually)' : ''}
+                      </span>
+                    </div>
+   
+                    {/* Features List */}
+                    <ul className="space-y-3 text-xs text-slate-300 font-medium pt-2">
+                      {[
+                        "5 parallel cognitive subagents",
+                        "Unlimited compilation pipeline runs",
+                        "High priority JIT compiling (12ms)",
+                        "Safe structural AST loop refactoring",
+                        "Database relational query indexing",
+                        "Priority SLA developer support"
+                      ].map((feature, idx) => (
+                        <li key={idx} className="flex items-start space-x-2.5">
+                          <Check size={12} className="text-purple-400 mt-0.5 shrink-0 shadow-[0_0_6px_rgba(168,85,247,0.4)]" />
+                          <span className="font-semibold">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+   
+                  {/* CTA */}
+                  <button className="w-full py-3 mt-8 rounded-lg bg-gradient-to-r from-purple-500 via-[#4F7CFF] to-cyan-500 text-white font-mono text-[9px] font-bold tracking-widest uppercase transition-all hover:brightness-110 shadow-[0_4px_20px_rgba(168,85,247,0.3)] select-none cursor-pointer">
+                    Upgrade to Pro
+                  </button>
+                </div>
+              </FloatingGlassCard>
+            </motion.div>
+ 
+            {/* Plan 3: Ultimate */}
+            <motion.div variants={itemVariants} className="w-full flex">
+              <FloatingGlassCard
+                glowColor="emerald"
+                yOffset={[0, -3, 0]}
+                xOffset={[0, 0.4, 0]}
+                rotateOffset={[0, 0.1, 0]}
+                duration={6.8}
+                delay={0.4}
+                className="w-full flex flex-col justify-between border-white/5 hover:border-emerald-500/20"
+              >
+                <div className="flex flex-col space-y-6 text-left h-full justify-between">
+                  <div className="space-y-6">
+                    {/* Title Row */}
+                    <div className="flex items-center justify-between select-none">
+                      <span className="font-mono text-[9px] font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.8 rounded-full uppercase tracking-wider">
+                        Tier 03 // SCALE
+                      </span>
+                      <Sliders size={14} className="text-slate-500" />
+                    </div>
+                    
+                    <div className="space-y-1">
+                      <h3 className="text-2xl font-bold uppercase tracking-tight text-white font-display">Ultimate</h3>
+                      <p className="text-xs text-slate-400 font-medium">Infinite compute pipelines & custom constraints.</p>
+                    </div>
+   
+                    {/* Pricing Display */}
+                    <div className="py-2.5 border-y border-white/5 flex items-baseline space-x-1 overflow-hidden">
+                      <div className="flex items-baseline space-x-0.5">
+                        <span className="text-3xl font-bold font-display text-white tracking-tight">$</span>
+                        <AnimatePresence mode="wait">
+                          <motion.span 
+                            key={isYearly ? 'yearly' : 'monthly'}
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: -20, opacity: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className="text-3xl font-bold font-display text-white tracking-tight"
+                          >
+                            {isYearly ? '69' : '89'}
+                          </motion.span>
+                        </AnimatePresence>
+                      </div>
+                      <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-semibold">
+                        / month {isYearly ? '(billed annually)' : ''}
+                      </span>
+                    </div>
+   
+                    {/* Features List */}
+                    <ul className="space-y-3 text-xs text-slate-400 font-medium pt-2">
+                      {[
+                        "Unlimited parallel cognitive agents",
+                        "Dedicated execution compile threads",
+                        "Custom AST analyzer injectors",
+                        "Full SOC2 diagnostic verification",
+                        "Active Slack + 24/7 Phone SLA support"
+                      ].map((feature, idx) => (
+                        <li key={idx} className="flex items-start space-x-2.5">
+                          <Check size={12} className="text-emerald-400 mt-0.5 shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+   
+                  {/* CTA */}
+                  <button className="w-full py-3 mt-8 rounded-lg border border-white/10 hover:border-emerald-500/30 bg-white/3 hover:bg-emerald-500/5 text-slate-300 hover:text-emerald-300 font-mono text-[9px] font-bold tracking-widest uppercase transition-all select-none cursor-pointer">
+                    Deploy Ultimate Network
+                  </button>
+                </div>
+              </FloatingGlassCard>
+            </motion.div>
+ 
+          </motion.div>
+        </div>
+      </section>
+ 
+      {/* Laser scanline divider below pricing section */}
+      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent relative z-20" />
+ 
+      {/* Futuristic Testimonials Section */}
+      <section id="testimonials" className="py-28 md:py-40 relative w-full overflow-hidden z-20 border-t border-white/[0.02]">
+        
+        {/* Atmospheric Cosmic Backdrop Glows */}
+        <div className="absolute top-1/3 left-1/4 w-[40%] h-[30%] rounded-full bg-purple-950/10 opacity-30 filter blur-[120px] pointer-events-none z-0 animate-pulse-slow" />
+        <div className="absolute bottom-1/3 right-1/4 w-[40%] h-[30%] rounded-full bg-cyan-950/10 opacity-30 filter blur-[120px] pointer-events-none z-0 animate-pulse-slow" style={{ animationDelay: '-6s' }} />
+        
+        {/* Background Grid Pattern inside the section */}
+        <div className="absolute inset-0 bg-grid opacity-5 pointer-events-none" />
+ 
+        {/* Section Heading */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="max-w-3xl mx-auto text-center mb-16 px-6 relative z-10"
+        >
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass border-cyan-500/10 shadow-[0_0_15px_rgba(6,182,212,0.05)] mb-4">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-400"></span>
+            </span>
+            <span className="font-mono text-[8px] sm:text-[9px] tracking-[0.22em] uppercase text-cyan-400 font-bold">
+              STUDENT TRIUMPHS // ALUMNI TELEMETRY
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-white font-display leading-[1.15] mb-4">
+            Developer <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-[#4F7CFF] to-purple-400 text-glow font-bold">
+              Success Stories
+            </span>
+          </h2>
+          <p className="max-w-xl mx-auto text-xs sm:text-sm text-slate-400 leading-relaxed font-sans font-medium">
+            Explore real-time telemetry from Signal AI graduates who compiled their training pathways and deployed into industry-leading systems.
+          </p>
+        </motion.div>
+ 
+        {/* Floating Quotation Cards Container */}
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch"
+          >
+            
+            {testimonials.map((item) => {
+              const isHovered = hoveredQuote === item.id;
+              
+              return (
+                <motion.div 
+                  key={item.id}
+                  variants={itemVariants}
+                  className="flex flex-col relative"
+                  onMouseEnter={() => setHoveredQuote(item.id)}
+                  onMouseLeave={() => setHoveredQuote(null)}
+                >
+                  {/* Glowing hover backdrop capsule */}
+                  <div className={`absolute inset-0 -m-[1.5px] rounded-[25px] bg-gradient-to-b ${item.glowColor} opacity-0 blur-[3px] group-hover:opacity-40 transition-opacity duration-500 pointer-events-none ${isHovered ? 'opacity-50' : ''}`} />
+                  
+                  <FloatingGlassCard
+                    glowColor={item.id === 1 ? "cyan" : item.id === 2 ? "purple" : "emerald"}
+                    yOffset={item.floatOffset}
+                    xOffset={[0, 0.2, 0]}
+                    rotateOffset={[0, 0.05, 0]}
+                    duration={item.duration}
+                    delay={item.delay}
+                    className={`w-full h-full flex flex-col justify-between border-white/5 bg-slate-950/40 transition-all duration-500 ${isHovered ? 'border-cyan-500/20 shadow-[0_20px_45px_rgba(6,182,212,0.12)] scale-102 -translate-y-2' : ''}`}
+                  >
+                    <div className="flex flex-col space-y-6 text-left h-full justify-between relative">
+                      
+                      <div className="space-y-6">
+                        
+                        {/* Telemetry status bar */}
+                        <div className="flex items-center justify-between border-b border-white/5 pb-3 text-[7px] font-mono text-slate-500 select-none">
+                          <span>ALUMNI_METRIC_OK</span>
+                          <span className={`font-bold tracking-widest ${isHovered ? 'text-cyan-400' : ''}`}>
+                            {item.telemetry}
+                          </span>
+                        </div>
+ 
+                        {/* Profile Row */}
+                        <div className="flex items-center space-x-4">
+                          <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center font-display font-black text-sm transition-all duration-500 ${item.avatarGlow} ${isHovered ? 'scale-105 shadow-[0_0_15px_rgba(6,182,212,0.3)]' : ''}`}>
+                            {item.avatar}
+                          </div>
+                          <div className="space-y-1">
+                            <h4 className="font-bold text-white tracking-wide uppercase text-sm">{item.name}</h4>
+                            <p className="font-mono text-[9px] text-slate-400 font-semibold tracking-wider">{item.role}</p>
+                          </div>
+                        </div>
+ 
+                        {/* Quote Text */}
+                        <p className="text-xs text-slate-300 leading-relaxed font-sans font-medium italic relative">
+                          <span className="text-slate-600 font-serif text-3xl absolute -top-4 -left-1">“</span>
+                          <span className="relative z-10 pl-2">{item.quote}</span>
+                        </p>
+                        
+                      </div>
+ 
+                      {/* Placement statistics footer */}
+                      <div className="border-t border-white/5 pt-4.5 space-y-2 mt-6 select-none font-mono">
+                        <div className={`text-[8.5px] font-bold py-1 px-2.5 rounded-lg border border-white/5 inline-block ${item.id === 1 ? 'text-cyan-400 bg-cyan-500/5' : item.id === 2 ? 'text-purple-400 bg-purple-500/5' : 'text-emerald-400 bg-emerald-500/5'}`}>
+                          {item.placement}
+                        </div>
+                        <div className="flex items-center justify-between text-[7px] text-slate-500 font-bold uppercase tracking-widest">
+                          <span>{item.stats}</span>
+                          <span className={isHovered ? 'text-cyan-400 animate-pulse' : ''}>
+                            {isHovered ? '✓ LIVE_SYNCED' : 'STEADY'}
+                          </span>
+                        </div>
+                      </div>
+ 
+                    </div>
+                  </FloatingGlassCard>
+                </motion.div>
+              );
+            })}
+ 
+          </motion.div>
+        </div>
+ 
+      </section>
+ 
+      {/* Laser scanline divider below testimonials section */}
+      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent relative z-20" />
+
+      {/* Cinematic Final CTA Section */}
+      <section id="cta" className="py-28 md:py-40 relative w-full overflow-hidden z-20 border-t border-white/[0.01]">
+        
+        {/* Cinematic Backdrop Atmospheric Light */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[75%] rounded-full bg-gradient-to-tr from-purple-950/15 via-[#162E93]/10 to-cyan-950/15 opacity-40 filter blur-[140px] pointer-events-none z-0 animate-pulse-slow" />
+        
+        {/* Subtle circular grid track behind CTA */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/[0.02] rounded-full pointer-events-none z-0 flex items-center justify-center">
+          <div className="w-[450px] h-[450px] border border-white/[0.03] border-dashed rounded-full animate-[spin_120s_linear_infinite]" />
+          <div className="absolute w-[300px] h-[300px] border border-cyan-500/[0.01] rounded-full" />
+        </div>
+
+        {/* Technical neural scanline grid overlay */}
+        <div className="absolute inset-0 bg-grid opacity-3 pointer-events-none z-0" />
+
+        {/* Weightless Floating Cyber Particles */}
+        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+          {[
+            { left: "12%", top: "25%", size: 6, color: "bg-cyan-500/30", duration: 8, delay: 0 },
+            { left: "85%", top: "30%", size: 8, color: "bg-purple-500/20", duration: 11, delay: 1 },
+            { left: "20%", top: "75%", size: 5, color: "bg-blue-500/25", duration: 9, delay: 2 },
+            { left: "78%", top: "65%", size: 7, color: "bg-cyan-400/25", duration: 12, delay: 0.5 },
+            { left: "48%", top: "15%", size: 4, color: "bg-purple-400/30", duration: 7, delay: 1.5 },
+          ].map((pt, i) => (
+            <motion.div
+              key={i}
+              className={`absolute rounded-full ${pt.color}`}
+              style={{
+                left: pt.left,
+                top: pt.top,
+                width: pt.size,
+                height: pt.size,
+                filter: "blur(1px)",
+              }}
+              animate={{
+                y: [0, -25, 0],
+                x: [0, 10, 0],
+                opacity: [0.3, 0.9, 0.3],
+              }}
+              transition={{
+                duration: pt.duration,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: pt.delay,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Content Wrapper */}
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10 flex flex-col items-center">
+          
+          {/* Micro telemetry tag */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass border-cyan-500/10 shadow-[0_0_15px_rgba(6,182,212,0.05)] mb-8"
+          >
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-400"></span>
+            </span>
+            <span className="font-mono text-[8px] sm:text-[9px] tracking-[0.22em] uppercase text-cyan-400 font-bold">SYSTEMS_ACTIVE // STABLE_VERSION_2.6</span>
+          </motion.div>
+
+          {/* Heading */}
+          <motion.h2
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-white font-display leading-[1.15] mb-4"
+          >
+            Build the Future <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-[#4F7CFF] to-purple-400 text-glow font-bold">
+              with AI
+            </span>
+          </motion.h2>
+
+          {/* Subtext */}
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto font-sans font-medium leading-relaxed mb-12"
+          >
+            Start coding smarter with your AI-powered development companion.
+          </motion.p>
+
+          {/* CTA Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+            className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+          >
+            {/* Primary CTA: Start coding free */}
+            <a 
+              href="#compiler"
+              className="relative group px-9 py-4 rounded-xl overflow-hidden font-bold font-mono text-[10px] tracking-[0.2em] uppercase transition-all duration-300 active:scale-[0.98] text-center shadow-[0_12px_45px_rgba(6,182,212,0.22)] cursor-pointer w-full sm:w-auto min-w-[210px] flex items-center justify-center"
+            >
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#162E93] via-cyan-500 to-[#4F7CFF] bg-[length:200%_auto] animate-[gradient_4s_linear_infinite] group-hover:scale-105 transition-transform" />
+              <span className="relative text-white flex items-center justify-center space-x-2">
+                <span>Start Building Free</span>
+                <Sparkles size={13} className="animate-pulse" />
+              </span>
+            </a>
+
+            {/* Secondary CTA: Open interactive logs sim */}
+            <button
+              onClick={() => setDemoActive(true)}
+              className="px-9 py-4 rounded-xl font-bold font-mono text-[10px] tracking-[0.2em] uppercase bg-white/4 hover:bg-white/8 border border-white/5 hover:border-cyan-500/20 transition-all text-slate-200 flex items-center justify-center space-x-2 group active:scale-[0.98] cursor-pointer w-full sm:w-auto min-w-[210px]"
+            >
+              <Play size={10} className="fill-slate-200 text-slate-200 group-hover:scale-110 transition-transform group-hover:text-cyan-400 group-hover:fill-cyan-400" />
+              <span>Watch Live Demo</span>
+            </button>
+          </motion.div>
+
+        </div>
+
+        {/* Elegant bracket decals on top-left / bottom-right coordinates to structure spatial depth */}
+        <div className="absolute top-10 left-10 w-6 h-6 border-t border-l border-white/[0.04] pointer-events-none select-none rounded-tl-md" />
+        <div className="absolute bottom-10 right-10 w-6 h-6 border-b border-r border-white/[0.04] pointer-events-none select-none rounded-br-md" />
+
+      </section>
+
+      {/* Laser scanline divider below CTA section */}
       <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent relative z-20" />
 
       {/* Footer - Minimalist & Sleek */}
